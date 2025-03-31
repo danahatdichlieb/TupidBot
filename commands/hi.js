@@ -1,8 +1,8 @@
 export default {
     name: "hi",
-    aliases: ["hello"],
-    description: "Sagt Hallo",
+    aliases: ["hi"],
+    description: "hi",
     async execute(chat, msg) {
-        chat.say(msg.channelName, `Hey @${msg.displayName}, wie geht’s? 👋`);
+        chat.say(msg.channelName, `@${msg.displayName} hi`);
     }
 };
