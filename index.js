@@ -18,13 +18,17 @@ const chat = new ChatClient({
 const commands = await loadCommands();
 
 chat.on("ready", () => console.log("TupidBot joined!"));
-chat.on("close", (error) => error && console.error("❌ Fehler:", error));
+chat.on("close", (error) => error && console.error("Fehler:", error));
 
-chat.on("PRIVMSG", async (msg) => handleCommand(chat, msg, commands, PREFIX));
+chat.on("PRIVMSG", async (msg) => {
+    handleCommand(chat, msg, commands, PREFIX)
+    console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
+});
 
 async function startBot() {
     await chat.connect();
     channels.forEach(channel => chat.join(channel));
 }
+
 
 startBot();
