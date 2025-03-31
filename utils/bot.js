@@ -1,9 +1,10 @@
+import { channels } from '../utils/channels.js';
 export const bot = {
     channels: {
-        channelsList: [],
+        channelsList: channels,
         getAll() {
             return this.channelsList;
         }
     },
-
+    stats: { runningSince: Date.now() }
 };
