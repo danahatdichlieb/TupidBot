@@ -24,7 +24,7 @@ const chat = new ChatClient({
 
 const commands = await loadCommands();
 
-chat.on("ready", () => console.log("TupidBot joined!"));
+chat.on("ready", () => console.log(`TupidBot joined in ${channels.length} Channels!`));
 chat.on("close", (error) => error && console.error("Fehler:", error));
 
 chat.on("PRIVMSG", async (msg) => {
