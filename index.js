@@ -27,7 +27,7 @@ chat.on("PRIVMSG", async (msg) => {
     if (msg.displayName.toLowerCase() !== USERNAME.toLowerCase()) {
 
         if (msg.messageText === "hi"){
-            chat.say(msg.channelName, "hi");
+            chat.say(msg.channelName, "hi);
         }
         if (msg.messageText === "Olrite"){
             chat.say(msg.channelName, "Olritey ");
