@@ -1,6 +1,9 @@
 import { ChatClient } from "@mastondzn/dank-twitch-irc";
 import { loadCommands } from "./utils/loadCommands.js";
 import { handleCommand } from "./utils/handleCommand.js";
+import { channels } from "./utils/channels.js";
+import { stats } from "./utils/stats.js";
+import { timeSince } from "./utils/utils.js";
 import fs from "fs";
 
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
@@ -21,7 +24,7 @@ chat.on("PRIVMSG", async (msg) => handleCommand(chat, msg, commands, PREFIX));
 
 async function startBot() {
     await chat.connect();
-    ["#tupidbot", "#jonasdirektschaltgetriebe", "#danahatdichlieb"].forEach(channel => chat.join(channel));
+    channels.forEach(channel => chat.join(channel));
 }
 
 startBot();
