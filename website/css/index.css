@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(#020230, #08043a);
+    background-attachment: fixed;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.09);
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 30px;
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav ul li {
+    margin-right: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nav ul li a:hover {
+    color: #f1f1f1;
+}
+
+.cta-button {
+    background-color: rgba(255, 255, 255, 0.09);
+    color: white;
+    border: solid 1px #b9a3e3;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #710d64;
+}
+

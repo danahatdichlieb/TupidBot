@@ -1,0 +1,26 @@
+.blob1 {
+    content: "";
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    width: 250vh;
+    height: 100vh;
+    background: url('../assets/blob.svg') no-repeat center/cover;
+    filter: blur(10vw);
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    opacity: 50%;
+}
+.blob2 {
+    content: "";
+    position: fixed;
+    bottom: -100%;
+    right: -100%;
+    width: 250vh;
+    height: 100vh;
+    background: url('../assets/blob2.svg') no-repeat center/cover;
+    filter: blur(10vw);
+    transform: translate(-50%, -50%);
+    z-index: -10;
+    opacity: 50%;
+}
