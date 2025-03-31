@@ -1,4 +1,5 @@
 import { channels } from '../utils/channels.js';
+
 export const bot = {
     channels: {
         channelsList: channels,

@@ -30,5 +30,4 @@ async function startBot() {
     channels.forEach(channel => chat.join(channel));
 }
 
-
 startBot();
