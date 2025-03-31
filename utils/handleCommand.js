@@ -8,7 +8,7 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
         try {
             await command.execute(chat, msg, args);
         } catch (error) {
-            console.error(`❌ Fehler im Command:`, error);
+            console.error(`Fehler im Command:`, error);
         }
     }
 }

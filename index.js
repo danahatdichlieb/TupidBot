@@ -9,6 +9,13 @@ import fs from "fs";
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
 const PREFIX = "+";
 
+export class Bot {
+    constructor() {
+        this.commands = new Map();
+        this.channels = new Channels();
+    }
+}
+
 const chat = new ChatClient({
     username: config.USERNAME,
     password: config.PASSWORD,
