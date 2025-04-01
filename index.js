@@ -4,15 +4,33 @@ import { handleCommand } from "./utils/handleCommand.js";
 import { channels } from "./utils/channels.js";
 import { stats } from "./utils/stats.js";
 import { timeSince } from "./utils/utils.js";
+import { Cooldown } from "./utils/cooldown.js";
 import fs from "fs";
 
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
 const PREFIX = "+";
 
-export class Bot {
+class Bot {
     constructor() {
+        this.uptime = null;
         this.commands = new Map();
         this.channels = new Channels();
+        this.cooldown = new Cooldown();
+        this.config = config;
+        this.utils = new Utils();
+
+    }
+
+    async initialize() {
+        await this.db.initialize();
+
+        await Promise.all([
+            this.uptime = new Date(),
+            this.loadCommands(),
+            this.channels.initialize(),
+            this.client.initialize(),
+            this.permissions.initialize(),
+        ]);
     }
 }
 
