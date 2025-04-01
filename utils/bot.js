@@ -1,4 +1,5 @@
 import { channels } from './channels.js';
+import { Cooldown } from './cooldown.js';
 
 export const bot = {
     channels: {
@@ -8,4 +9,7 @@ export const bot = {
         }
     },
     stats: { runningSince: Date.now() },
+
+    cooldowns: new Cooldown()
 };
+
