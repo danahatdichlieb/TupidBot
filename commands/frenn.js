@@ -5,6 +5,7 @@ export default {
     name: 'frenn',
     aliases: ['freunde'],
     description: 'frenn',
+    cooldown: 5,
     async execute(client, msg) {
         client.say(msg.channelName, `@${msg.displayName} nise ${answers[Math.floor(Math.random() * answers.length)]} frenn`);
     },

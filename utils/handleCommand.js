@@ -9,19 +9,19 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
 
     if (command) {
         const user = msg.username;
+        const cooldownKey = `${user}:${commandName}`;
 
-        // Cooldown-Check
-        if (bot.cooldowns.has(user)) {
-            console.log("COOLDOWN!!!")
+        if (bot.cooldowns.has(cooldownKey)) {
             return;
         }
 
-        bot.cooldowns.set(user, bot.cooldowns.durations.short);
+        const commandCooldown = command.cooldown;
+        bot.cooldowns.set(cooldownKey, commandCooldown);
 
         try {
             await command.execute(chat, msg, args);
         } catch (error) {
-            console.error(`Fehler im Command:`, error);
+            console.error(`Fehler im Command ${commandName}:`, error);
         }
     }
 }
