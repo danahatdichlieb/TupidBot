@@ -11,10 +11,9 @@ export default {
         const channelsCount = bot.channels.getAll().length;
 
         const messages = [
-            '🏓 PONG',
+            'ApuApustaja',
             `Uptime: ${timeSince(stats.runningSince)}`,
             `${channelsCount} Channels`,
-            'INZOIPsyCat'
         ];
 
         return { text: messages.join(' | ') };
