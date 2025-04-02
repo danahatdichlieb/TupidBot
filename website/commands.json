@@ -1,9 +1,9 @@
 [
   {
     "name": "commands",
-    "description": "hi",
+    "description": "Link zur TupidBot Website",
     "aliases": [
-      "Link zur TupidBot Website"
+      "cmd"
     ]
   },
   {
@@ -22,9 +22,9 @@
   },
   {
     "name": "hi",
-    "description": "hi",
+    "description": "TupidBot sagt hi",
     "aliases": [
-      "cmd"
+      ""
     ]
   },
   {
