@@ -6,6 +6,7 @@ export default {
     async execute(chat, msg, args) {
         const username = msg.displayName;
         const number = Math.floor(Math.random() * 100) + 1;
-        chat.say(msg.channelName, `@${username}, du hast eine ${number} geworfen! 🎲`);
+
+        return { text: `du hast eine ${number} geworfen! 🎲` };
     }
 };

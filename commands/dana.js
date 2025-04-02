@@ -12,6 +12,6 @@ export default {
         const dana = danaData.data[Math.floor(Math.random() * danaData.data.length)];
         const response = msg.args?.length ? `${msg.args.join(" ")}, ${dana}` : dana;
 
-        chat.say(msg.channelName,`@${msg.displayName} SoCute ${response} patpat`);
+        return { text: `SoCute ${response} patpat` };
     },
 };
