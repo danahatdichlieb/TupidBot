@@ -1,5 +1,12 @@
 [
   {
+    "name": "commands",
+    "description": "hi",
+    "aliases": [
+      "Link zur TupidBot Website:"
+    ]
+  },
+  {
     "name": "dana",
     "description": "zufälliges Bild von Dana",
     "aliases": [
