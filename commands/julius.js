@@ -1,4 +1,4 @@
-const answers = ["julius stinkt.", "blxryer", "julius hat gerölpst"]
+const answers = ["julius stinkt.", "blxryer", "julius hat gerölpst", "patpat"]
 
 export default {
     name: 'julius',
