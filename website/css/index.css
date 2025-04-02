@@ -13,7 +13,7 @@ body {
 .header {
     background: linear-gradient(70deg, #111112, #191818, #111112);
     padding: 10px;
-    border-bottom: 1px solid rgba(96, 85, 85, 0.19);
+    border-bottom: 1px solid rgba(182, 156, 156, 0.19);
     position: fixed;
     width: 100%;
     top: 0;
@@ -136,13 +136,13 @@ body {
 .footer {
     background: linear-gradient(70deg, #111112, #191818, #111112);
     padding: 10px;
-    border-bottom: 1px solid rgba(96, 85, 85, 0.19);
+    border-top: 1px solid rgba(182, 156, 156, 0.19);
     position: fixed;
     width: 100%;
     bottom: 0;
     right: 0;
     z-index: 100;
-    filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(0px -12px 10px rgba(0, 0, 0, 0.35));
     display: flex;
     justify-content: center;
     align-items: center;
