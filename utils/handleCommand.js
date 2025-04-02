@@ -21,7 +21,7 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
         try {
             const response = await command.execute(chat, msg, args);
             if (response?.text) {
-                await chat.sendRaw(`${reply ? `@reply-parent-msg-id=${msg.messageID} ` : ""}PRIVMSG #${msg.channelName} :/ ${response.text}`);
+                await chat.sendRaw(`@reply-parent-msg-id=${msg.messageID} PRIVMSG #${msg.channelName} :/ ${response.text}`);
             }
         } catch (error) {
             console.error(`Fehler im Command ${commandName}:`, error);
