@@ -3,7 +3,7 @@
     "name": "commands",
     "description": "hi",
     "aliases": [
-      "Link zur TupidBot Website:"
+      "Link zur TupidBot Website"
     ]
   },
   {
@@ -24,7 +24,7 @@
     "name": "hi",
     "description": "hi",
     "aliases": [
-      "hii"
+      "cmd"
     ]
   },
   {
