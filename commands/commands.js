@@ -1,6 +1,6 @@
 export default {
     name: "commands",
-    aliases: ["Link zur TupidBot Website:"],
+    aliases: ["Link zur TupidBot Website"],
     description: "hi",
     cooldown: 5,
     async execute(chat, msg) {
