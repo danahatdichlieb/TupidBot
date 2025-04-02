@@ -1,1 +1,1 @@
-export const channels = ["#tupidbot", "#jonasdirektschaltgetriebe", "#danahatdichlieb"];
+export const channels = ["#tupidbot", "#jonasdirektschaltgetriebe", "#danahatdichlieb", "feelsdankman_daniel"];
