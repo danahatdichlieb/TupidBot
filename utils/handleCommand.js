@@ -19,7 +19,10 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
         bot.cooldowns.set(cooldownKey, commandCooldown);
 
         try {
-            await command.execute(chat, msg, args);
+            const response = await command.execute(chat, msg, args);
+            if (response?.text) {
+                await chat.sendRaw(`@reply-parent-msg-id=${msg.messageID} PRIVMSG #${msg.channelName} ${response.text}`);
+            }
         } catch (error) {
             console.error(`Fehler im Command ${commandName}:`, error);
         }

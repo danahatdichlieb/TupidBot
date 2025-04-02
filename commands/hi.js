@@ -4,6 +4,6 @@ export default {
     description: "hi",
     cooldown: 5,
     async execute(chat, msg) {
-        chat.say(msg.channelName, `@${msg.displayName} hi`);
+        return { text: `hi` };
     }
 };

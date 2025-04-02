@@ -5,6 +5,6 @@ export default {
     description: 'julius stinkt',
     cooldown: 5,
     async execute(client, msg) {
-        client.say(msg.channelName, `@${msg.displayName} ${answers[Math.floor(Math.random() * answers.length)]}`);
+        return { text: answers[Math.floor(Math.random() * answers.length)] };
     },
 };

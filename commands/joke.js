@@ -108,7 +108,9 @@ export default {
             "Was ist weiß und schnell? Ein Schimmel auf der Rennbahn!",
             "Warum gingen die Bienen auf den Ball? Weil sie die Tanzfläche zum Summen brachten!"
         ];
+
         const joke = jokes[Math.floor(Math.random() * jokes.length)];
-        chat.say(msg.channelName, `@${msg.displayName}, ${joke} LO`);
+
+        return { text: `${joke} LO` };
     }
 };
