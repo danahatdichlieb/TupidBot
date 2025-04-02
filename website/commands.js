@@ -1,4 +1,4 @@
-fetch("../data/commands.json")
+fetch("../website/commands.json")
     .then(response => response.json())
     .then(commands => {
         const container = document.getElementById("commands-list");

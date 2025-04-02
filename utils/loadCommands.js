@@ -22,7 +22,7 @@ export async function loadCommands() {
         }
     }
 
-    fs.writeFileSync("./data/commands.json", JSON.stringify(commandArray, null, 2));
+    fs.writeFileSync("./website/commands.json", JSON.stringify(commandArray, null, 2));
 
     console.log(`✅ ${commands.size} Commands geladen!`);
     return commands;
