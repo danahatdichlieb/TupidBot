@@ -3,4 +3,5 @@ export const channels = [
   "#jonasdirektschaltgetriebe",
   "#danahatdichlieb",
   "#feelsdankman_daniel",
+  "#lilb_lxryer"
 ];

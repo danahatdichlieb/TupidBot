@@ -1,5 +1,12 @@
 [
   {
+    "name": "add",
+    "description": "Fügt den Channel des Nutzers zur Liste hinzu",
+    "aliases": [
+      "join"
+    ]
+  },
+  {
     "name": "commands",
     "description": "Link zur TupidBot Website",
     "aliases": [
