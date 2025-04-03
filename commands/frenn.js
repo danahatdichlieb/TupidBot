@@ -1,5 +1,5 @@
 const answers = ["https://imgur.com/NXpiK0f", "https://imgur.com/qsKbh37",
-    "https://i.imgur.com/EPSyzRZ.png", "https://i.imgur.com/VVxWxsp.png", "https://i.imgur.com/hcjcMt8.png"]
+    "https://i.imgur.com/EPSyzRZ.png", "https://i.imgur.com/VVxWxsp.png", "https://i.imgur.com/hcjcMt8.png", "https://i.imgur.com/1XhLTh1.png"]
 
 export default {
     name: 'frenn',
