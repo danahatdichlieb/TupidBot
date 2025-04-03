@@ -1,7 +1,7 @@
 [
   {
     "name": "add",
-    "description": "Fügt den Channel des Nutzers zur Liste hinzu",
+    "description": "Added TupidBot in deinen Channel.",
     "aliases": [
       "join"
     ]
