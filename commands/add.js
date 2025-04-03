@@ -15,9 +15,9 @@ export default {
 
             fs.writeFile('./utils/channels.js', `export const channels = ${JSON.stringify(channels, null, 2)};`, (err) => {
                 if (err) {
-                    return { text: `Fehler beim Hinzufügen des Channels: ${err.message}` };
+                    return { text: `not Olrite}` };
                 } else {
-                    return { text: `Der Channel von "${username}" wurde erfolgreich hinzugefügt!` };
+                    return { text: `Olrite` };
                 }
             });
         } else {
