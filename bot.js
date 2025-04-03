@@ -1,4 +1,4 @@
-const Bot = require('./index.js');
+const Bot = require("./index.js");
 
 global.bot = new Bot();
 

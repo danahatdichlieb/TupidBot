@@ -11,48 +11,49 @@ const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
 const PREFIX = "+";
 
 class Bot {
-    constructor() {
-        this.uptime = null;
-        this.commands = new Map();
-        this.channels = new Channels();
-        this.cooldown = new Cooldown();
-        this.config = config;
-        this.utils = new Utils();
+  constructor() {
+    this.uptime = null;
+    this.commands = new Map();
+    this.channels = new Channels();
+    this.cooldown = new Cooldown();
+    this.config = config;
+    this.utils = new Utils();
+  }
 
-    }
+  async initialize() {
+    await this.db.initialize();
 
-    async initialize() {
-        await this.db.initialize();
-
-        await Promise.all([
-            this.uptime = new Date(),
-            this.loadCommands(),
-            this.channels.initialize(),
-            this.client.initialize(),
-            this.permissions.initialize(),
-        ]);
-    }
+    await Promise.all([
+      (this.uptime = new Date()),
+      this.loadCommands(),
+      this.channels.initialize(),
+      this.client.initialize(),
+      this.permissions.initialize(),
+    ]);
+  }
 }
 
 const chat = new ChatClient({
-    username: config.USERNAME,
-    password: config.PASSWORD,
-    connection: { type: "websocket", secure: true }
+  username: config.USERNAME,
+  password: config.PASSWORD,
+  connection: { type: "websocket", secure: true },
 });
 
 const commands = await loadCommands();
 
-chat.on("ready", () => console.log(`TupidBot joined in ${channels.length} Channels!`));
+chat.on("ready", () =>
+  console.log(`TupidBot joined in ${channels.length} Channels!`)
+);
 chat.on("close", (error) => error && console.error("Fehler:", error));
 
 chat.on("PRIVMSG", async (msg) => {
-    handleCommand(chat, msg, commands, PREFIX)
-    console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
+  handleCommand(chat, msg, commands, PREFIX);
+  console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
 });
 
 async function startBot() {
-    await chat.connect();
-    channels.forEach(channel => chat.join(channel));
+  await chat.connect();
+  channels.forEach((channel) => chat.join(channel));
 }
 
 startBot();

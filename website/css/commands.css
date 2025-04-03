@@ -1,188 +1,184 @@
 body {
-    background: linear-gradient(#111112, #0e0e0e);
-    background-attachment: fixed;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background: linear-gradient(#111112, #0e0e0e);
+  background-attachment: fixed;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .header {
-    background: linear-gradient(70deg, #111112, #191818, #111112);
-    padding: 10px;
-    border-bottom: 1px solid rgba(182, 156, 156, 0.19);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+  background: linear-gradient(70deg, #111112, #191818, #111112);
+  padding: 10px;
+  border-bottom: 1px solid rgba(182, 156, 156, 0.19);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 100%;
-    padding: 0 20px;
-    max-width:60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 60%;
 }
 
 .logo {
-    height: 30px;
+  height: 30px;
 }
 
 .nav-buttons {
-    display: flex;
-    align-items: center;
-    transition: 0.5s;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
 }
 
 .nav ul {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 .nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 .nav ul li a {
-    text-decoration: none;
-    color: #989898;
-    font-size: 18px;
-    font-weight: bold;
-
+  text-decoration: none;
+  color: #989898;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .nav ul li a:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .cta-button {
-    background-color: rgba(255, 255, 255, 0.09);
-    color: white;
-    border: solid 1px #1f1e22;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+  background-color: rgba(255, 255, 255, 0.09);
+  color: white;
+  border: solid 1px #1f1e22;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
 }
 
 .cta-button {
-    border: 1px solid rgba(128, 117, 117, 0.19);
-    border-radius: 10px;
-    transition: 0.5s;
-    filter: drop-shadow(0px 12px 10px rgba(255, 255, 255, 0.23));
+  border: 1px solid rgba(128, 117, 117, 0.19);
+  border-radius: 10px;
+  transition: 0.5s;
+  filter: drop-shadow(0px 12px 10px rgba(255, 255, 255, 0.23));
 }
 
 .cta-button:hover {
-    border: 1px solid rgba(170, 165, 165, 0.19);
+  border: 1px solid rgba(170, 165, 165, 0.19);
 }
 
 .footer {
-    background: linear-gradient(70deg, #111112, #191818, #111112);
-    padding: 10px;
-    border-top: 1px solid rgba(182, 156, 156, 0.19);
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    right: 0;
-    z-index: 100;
-    filter: drop-shadow(0px -12px 10px rgba(0, 0, 0, 0.35));
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: linear-gradient(70deg, #111112, #191818, #111112);
+  padding: 10px;
+  border-top: 1px solid rgba(182, 156, 156, 0.19);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  filter: drop-shadow(0px -12px 10px rgba(0, 0, 0, 0.35));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0 20px;
-    max-width:60%;
-    color: #736868;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 60%;
+  color: #736868;
 }
 
 .footer-content a {
-    color: #d3cbcb;
+  color: #d3cbcb;
 }
 
 #commands-list {
-    background: linear-gradient(70deg, #0e0e0e, #191818, #0e0e0e);
-    border: 1px solid rgba(51, 50, 50, 0.38);
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 600px;
-    width: 40%;
-    overflow-y: scroll;
-    filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
-
+  background: linear-gradient(70deg, #0e0e0e, #191818, #0e0e0e);
+  border: 1px solid rgba(51, 50, 50, 0.38);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
+  width: 40%;
+  overflow-y: scroll;
+  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
 }
 
 #commands-list::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 #commands-list div {
-    margin-bottom: 15px;
-    padding: 15px;
-    background: linear-gradient(70deg, #232325, #222020, #232325);
-    border: 1px solid #424040;
-    border-radius: 15px;
-    transition: 0.2s;
-    margin-right: 5px;
-    filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(70deg, #232325, #222020, #232325);
+  border: 1px solid #424040;
+  border-radius: 15px;
+  transition: 0.2s;
+  margin-right: 5px;
+  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
 }
 
 #commands-list div:hover {
-    scale: 1.03;
+  scale: 1.03;
 }
 
 #commands-list div::before {
-    content: "+";
-    color: #c1c1c1;
-    font-weight: 700;
-    margin-right: 5px;
+  content: "+";
+  color: #c1c1c1;
+  font-weight: 700;
+  margin-right: 5px;
 }
 
 #commands-list strong {
-    color: #ffffff;
-    font-size: 1.1em;
+  color: #ffffff;
+  font-size: 1.1em;
 }
 
 #commands-list em {
-    color: #f17265;
+  color: #f17265;
 }
 
-
 #commands-list div {
-    color: #595555;
-    font-style: italic;
-    font-size: 1em;
-    margin-left: 5px;
+  color: #595555;
+  font-style: italic;
+  font-size: 1em;
+  margin-left: 5px;
 }
 
 #commands-list br {
-    color: transparent;
+  color: transparent;
 }
 
 @media (max-width: 800px) {
+  #commands-list {
+    width: 70%;
+  }
 
-    #commands-list {
-        width: 70%;
-    }
-
-    .logo {
-        margin-left: -15px;
-    }
+  .logo {
+    margin-left: -15px;
+  }
 }
