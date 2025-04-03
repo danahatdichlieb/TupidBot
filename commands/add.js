@@ -4,7 +4,7 @@ import { channels } from '../utils/channels.js';
 export default {
     name: "add",
     aliases: ["join"],
-    description: "Fügt den Channel des Nutzers zur Liste hinzu",
+    description: "Added TupidBot in deinen Channel.",
     cooldown: 5,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();
