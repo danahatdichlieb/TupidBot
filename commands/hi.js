@@ -1,6 +1,6 @@
 export default {
   name: "hi",
-  aliases: [],
+  aliases: ["hi"],
   description: "TupidBot sagt hi",
   cooldown: 5,
   async execute(chat, msg) {
