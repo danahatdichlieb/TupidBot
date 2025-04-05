@@ -53,13 +53,5 @@
     "aliases": [
       "pong"
     ]
-  },
-  {
-    "name": "roll",
-    "description": "Würfelt eine Zahl zwischen 1 und 100",
-    "aliases": [
-      "dice",
-      "würfel"
-    ]
   }
 ]
