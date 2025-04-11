@@ -49,7 +49,7 @@
   },
   {
     "name": "liste",
-    "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie.",
+    "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
     "aliases": [
       "list"
     ]
