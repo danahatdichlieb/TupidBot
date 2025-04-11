@@ -4,18 +4,18 @@ export function timeSince(timestamp) {
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
 
+  let timeString = '';
+
   if (days > 0) {
-    return `${days} ${days === 1 ? "d" : "d"}, ${hours % 24}h`;
+    timeString += `${days}d `;
   }
-  if (hours > 0) {
-    return `${hours} ${hours === 1 ? "h" : "h"}, ${
-      minutes % 60
-    }m`;
+  if (hours > 0 || days > 0) {
+    timeString += `${hours % 24}h `;
   }
-  if (minutes > 0) {
-    return `${minutes} ${minutes === 1 ? "m" : "m"}, ${
-      seconds % 60
-    }s`;
+  if (minutes > 0 || hours > 0 || days > 0) {
+    timeString += `${minutes % 60}m `;
   }
-  return `${seconds}s`;
+  timeString += `${seconds % 60}s`;
+
+  return timeString.trim(); // Trim entfernt das letzte Leerzeichen
 }
