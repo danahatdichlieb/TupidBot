@@ -31,7 +31,7 @@
     "name": "hi",
     "description": "TupidBot sagt hi",
     "aliases": [
-      ""
+      "hi"
     ]
   },
   {
@@ -46,6 +46,13 @@
     "name": "julius",
     "description": "julius stinkt",
     "aliases": []
+  },
+  {
+    "name": "liste",
+    "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie.",
+    "aliases": [
+      "list"
+    ]
   },
   {
     "name": "ping",
