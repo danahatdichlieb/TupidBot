@@ -5,6 +5,7 @@ import { channels } from "./utils/channels.js";
 import { stats } from "./utils/stats.js";
 import { timeSince } from "./utils/utils.js";
 import { Cooldown } from "./utils/cooldown.js";
+import { Database } from './db/Database.js';
 import fs from "fs";
 
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
@@ -12,12 +13,12 @@ const PREFIX = "+";
 
 class Bot {
   constructor() {
-    this.uptime = null;
     this.commands = new Map();
     this.channels = new Channels();
     this.cooldown = new Cooldown();
     this.config = config;
     this.utils = new Utils();
+    this.db = new Database();
   }
 
   async initialize() {
