@@ -31,7 +31,7 @@ export default {
 
                     await db.query(`INSERT INTO ${list} (username) VALUES (?)`, [targetUser]);
 
-                    return { text: `${targetUser} wurde zur Liste '${list}' hinzugefügt.` };
+                    return { text: `${targetUser} wurde zur Liste '${list}' hinzugefügt. ApuApustaja` };
                 }
 
                 if (action === "remove") {
@@ -73,6 +73,6 @@ export default {
             }
         }
 
-        return { text: "+liste <add/remove> <gemein/nett> <username>" };
+        return { text: "+liste <gemein/nett> <add/remove> <username> FeelsDankMan" };
     }
 };
