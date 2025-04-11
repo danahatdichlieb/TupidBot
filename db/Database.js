@@ -1,15 +1,19 @@
 import { createPool } from 'mariadb';
-import db from './db.js';
+import db from '../db/db.js';
 
-export class Database {
+class Database {
+    static pool;
+
     constructor() {
-        this.pool = createPool({
-            user: db.db.user,
-            password: db.db.pass,
-            database: db.db.name,
-            host: db.db.host,
-            connectionLimit: 500
-        });
+        if (!Database.pool) {
+            Database.pool = createPool({
+                user: db.db.user,
+                password: db.db.pass,
+                database: db.db.name,
+                host: db.db.host,
+                connectionLimit: 500
+            });
+        }
     }
 
     async query(queryParam, params = []) {
@@ -17,11 +21,10 @@ export class Database {
         let result;
 
         try {
-            connection = await this.pool.getConnection();
+            connection = await Database.pool.getConnection();
             result = await connection.query(queryParam, params);
         } catch (e) {
             console.error('[Database Error]', e);
-
         } finally {
             connection?.release();
         }
@@ -39,3 +42,5 @@ export class Database {
         return rows.length > 0;
     }
 }
+
+export default Database;
