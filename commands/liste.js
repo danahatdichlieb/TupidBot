@@ -3,76 +3,58 @@ import { Database } from '../db/Database.js';
 export default {
     name: "liste",
     aliases: ["list"],
-    description: "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie.",
+    description: "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
     cooldown: 5,
     async execute(chat, msg, args) {
-        const db = new Database();
-        const username = msg.ircPrefix.nickname.toLowerCase();
-        const action = args[1];
         const list = args[0];
+        const action = args[1];
         const targetUser = args[2]?.toLowerCase();
 
-        if (args.length === 0) {
-            return { text: "+liste <add/remove> <gemein/nett> <username>" };
+        if (!list || (list !== "gemein" && list !== "nett")) {
+            return { text: "+liste <gemein/nett> <add/remove> <username>" };
         }
 
-        if (action && list && targetUser) {
-            if (list !== "gemein" && list !== "nett") {
-                return { text: `Fehler: Die Liste muss 'gemein' oder 'nett' sein.` };
-            }
-
+        if (!action) {
             try {
-                if (action === "add") {
-                    const existingUser = await db.queryOne(`SELECT * FROM ${list} WHERE username = ?`, [targetUser]);
-
-                    if (existingUser) {
-                        return { text: `${targetUser} ist bereits in der Liste '${list}'.` };
-                    }
-
-                    await db.query(`INSERT INTO ${list} (username) VALUES (?)`, [targetUser]);
-
-                    return { text: `${targetUser} wurde zur Liste '${list}' hinzugefügt. ApuApustaja` };
+                const db = new Database();
+                const result = await db.query(`SELECT username FROM ${list}`);
+                if (result.length === 0) {
+                    return { text: `Die Liste '${list}' ist leer.` };
                 }
-
-                if (action === "remove") {
-                    const existingUser = await db.queryOne(`SELECT * FROM ${list} WHERE username = ?`, [targetUser]);
-
-                    if (!existingUser) {
-                        return { text: `${targetUser} ist nicht in der Liste '${list}'.` };
-                    }
-
-                    await db.query(`DELETE FROM ${list} WHERE username = ?`, [targetUser]);
-
-                    return { text: `${targetUser} wurde aus der Liste '${list}' entfernt.` };
-                }
-
-                return { text: "Verwende 'add' oder 'remove'." };
+                const usernames = result.map(u => u.username).join(', ');
+                return { text: `${list === 'gemein' ? "Gemeine" : "Nette"} Liste: ${usernames}` };
             } catch (error) {
-                console.error("Datenbankfehler:", error);
-                return { text: "GULP" };
+                console.error("Fehler beim Abrufen der Liste:", error);
+                return { text: "Fehler beim Abrufen der Liste." };
             }
         }
 
-        if (args.length === 1 && (args[0] === "gemein" || args[0] === "nett")) {
-            try {
-                const listsToShow = [];
-                if (args[0] === "gemein") {
-                    const gemeinList = await db.query(`SELECT username FROM gemein`);
-                    listsToShow.push(`Gemeine Liste: ${gemeinList.map(user => user.username).join(', ')}`);
-                }
-
-                if (args[0] === "nett") {
-                    const nettList = await db.query(`SELECT username FROM nett`);
-                    listsToShow.push(`Nette Liste: ${nettList.map(user => user.username).join(', ')}`);
-                }
-
-                return { text: listsToShow.join("") || "Keine Benutzer in der Liste." };
-            } catch (error) {
-                console.error("Datenbankfehler:", error);
-                return { text: "Fehler beim Abrufen der Listen." };
-            }
+        if (!targetUser || (action !== "add" && action !== "remove")) {
+            return { text: "+liste <gemein/nett> <add/remove> <username>" };
         }
 
-        return { text: "+liste <gemein/nett> <add/remove> <username> FeelsDankMan" };
+        try {
+            const db = new Database();
+            const existingUser = await db.queryOne(`SELECT * FROM ${list} WHERE username = ?`, [targetUser]);
+
+            if (action === "add") {
+                if (existingUser) {
+                    return { text: `${targetUser} ist bereits in der Liste '${list}'.` };
+                }
+                await db.query(`INSERT INTO ${list} (username) VALUES (?)`, [targetUser]);
+                return { text: `${targetUser} wurde zur Liste '${list}' hinzugefügt. ApuApustaja` };
+            }
+
+            if (action === "remove") {
+                if (!existingUser) {
+                    return { text: `${targetUser} ist nicht in der Liste '${list}'.` };
+                }
+                await db.query(`DELETE FROM ${list} WHERE username = ?`, [targetUser]);
+                return { text: `${targetUser} wurde aus der Liste '${list}' entfernt.` };
+            }
+        } catch (error) {
+            console.error("Datenbankfehler:", error);
+            return { text: "GULP" };
+        }
     }
 };
