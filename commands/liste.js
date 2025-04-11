@@ -1,4 +1,4 @@
-import { Database } from '../db/Database.js';
+import Database from '../db/Database.js';
 
 export default {
     name: "liste",

@@ -1,5 +1,5 @@
 import { createPool } from 'mariadb';
-import db from './db.js';
+import db from '../db/db.js';
 
 class Database {
     static pool;

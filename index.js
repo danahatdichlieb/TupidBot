@@ -5,7 +5,7 @@ import { channels } from "./utils/channels.js";
 import { stats } from "./utils/stats.js";
 import { timeSince } from "./utils/utils.js";
 import { Cooldown } from "./utils/cooldown.js";
-import { Database } from './db/Database.js';
+import Database from './db/Database.js';
 import fs from "fs";
 
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
