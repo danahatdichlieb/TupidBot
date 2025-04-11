@@ -7,7 +7,8 @@ export class Database {
             user: db.db.user,
             password: db.db.pass,
             database: db.db.name,
-            host: db.db.host
+            host: db.db.host,
+            connectionLimit: 500
         });
     }
 
