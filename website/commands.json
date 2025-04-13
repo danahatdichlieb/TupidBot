@@ -67,5 +67,12 @@
     "aliases": [
       "u"
     ]
+  },
+  {
+    "name": "weather",
+    "description": "Zeigt das Wetter einer Stadt an",
+    "aliases": [
+      "w"
+    ]
   }
 ]
