@@ -22,7 +22,7 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
       const response = await command.execute(chat, msg, args);
       if (response?.text) {
         await chat.sendRaw(
-          `@reply-parent-msg-id=${msg.messageID} PRIVMSG #${msg.channelName} :/ ${response.text}`
+            `@reply-parent-msg-id=${msg.messageID} PRIVMSG #${msg.channelName} :/ ${response.text}`
         );
       }
     } catch (error) {

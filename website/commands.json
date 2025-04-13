@@ -60,5 +60,12 @@
     "aliases": [
       "pong"
     ]
+  },
+  {
+    "name": "user",
+    "description": "Zeigt Informationen zum Benutzer",
+    "aliases": [
+      "u"
+    ]
   }
 ]

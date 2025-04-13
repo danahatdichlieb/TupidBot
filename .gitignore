@@ -12,3 +12,4 @@ config.json
 package-lock.json
 .idea/
 /db/db.js
+/api
