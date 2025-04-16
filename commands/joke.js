@@ -11,7 +11,7 @@ export default {
       if (data && data.joke) {
         return { text: `${data.joke}` };
       } else {
-        return { text: "Leck" };
+        return { text: "NoNo" };
       }
     } catch (error) {
       console.error("Fehler:", error);
