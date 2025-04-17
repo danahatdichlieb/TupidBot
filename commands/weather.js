@@ -23,7 +23,7 @@ export default {
             const data = await response.json();
 
             if (data.cod !== 200) {
-                return { text: `Die Stadt "${city}" wurde nicht gefunden. 😢` };
+                return { text: `Die Stadt "${city}" wurde nicht gefunden.` };
             }
 
             const { name, main, weather, sys } = data;
@@ -36,14 +36,14 @@ export default {
             const sunset = new Date(sys.sunset * 1000).toLocaleTimeString("de-DE", { timeZone: "Europe/Berlin" });
 
             const messages = [
-                `🌤️ Wetter in ${name}:`,
-                `🌡️ ${description}, ${temp}°C (gefühlt: ${feels_like}°C)`,
-                `🔺 Max: ${temp_max}°C | 🔻 Min: ${temp_min}°C`,
+                `${name}`,
+                `${description}, ${temp}°C (gefühlt: ${feels_like}°C)`,
+                `🔺${temp_max}°C 🔻${temp_min}°C`,
                 `🌅 Sonnenaufgang: ${sunrise}`,
                 `🌇 Sonnenuntergang: ${sunset}`
             ];
 
-            return { text: messages.join(" | ") };
+            return { text: messages.join(" , ") };
 
         } catch (error) {
             console.error("Fehler beim Abrufen der Wetterdaten:", error);
