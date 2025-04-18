@@ -1,23 +1,19 @@
 export function timeSince(timestamp) {
-  const seconds = Math.floor((Date.now() - timestamp) / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
+    const seconds = Math.floor((Date.now() - timestamp) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
 
-  let timeString = '';
-
-  if (days > 0) {
-    timeString += `${days}d `;
-  }
-  if (hours > 0 || days > 0) {
-    timeString += `${hours % 24}h `;
-  }
-  if (minutes > 0 || hours > 0 || days > 0) {
-    timeString += `${minutes % 60}m `;
-  }
-  timeString += `${seconds % 60}s`;
-
-  return timeString.trim(); // Trim entfernt das letzte Leerzeichen
+    if (days > 0) {
+        return `${days} ${days === 1 ? 'Tag' : 'Tage'}, ${hours % 24} Stunden`;
+    }
+    if (hours > 0) {
+        return `${hours} ${hours === 1 ? 'Stunde' : 'Stunden'}, ${minutes % 60} Minuten`;
+    }
+    if (minutes > 0) {
+        return `${minutes} ${minutes === 1 ? 'Minute' : 'Minuten'}, ${seconds % 60} Sekunden`;
+    }
+    return `${seconds} Sekunden`;
 }
 
 export function timeAgo(date) {
@@ -37,4 +33,21 @@ export function timeAgo(date) {
   if (diffInHours > 0) return `${diffInHours} Stunden und ${diffInMinutes % 60} Minuten`;
   if (diffInMinutes > 0) return `${diffInMinutes} Minuten und ${diffInSeconds % 60} Sekunden`;
   return `${diffInSeconds} Sekunden`;
+}
+
+export function presence(channelId) {
+    const data = {
+        kind: 1,
+        passive: true,
+        session_id: "",
+        data: { platform: "TWITCH", id: channelId },
+    };
+
+    return fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
 }
