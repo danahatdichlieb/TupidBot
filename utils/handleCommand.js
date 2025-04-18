@@ -1,4 +1,5 @@
 import { bot } from './bot.js';
+import { presence } from './utils.js';
 
 export async function handleCommand(chat, msg, commands, PREFIX) {
     if (!msg.messageText.startsWith(PREFIX)) return;
@@ -22,6 +23,8 @@ export async function handleCommand(chat, msg, commands, PREFIX) {
             const response = await command.execute(chat, msg, args);
             if (response?.text) {
                 await chat.sendRaw(`@reply-parent-msg-id=${msg.messageID} PRIVMSG #${msg.channelName} ${response.text}`);
+
+                await presence(msg.channelID);
             }
         } catch (error) {
             console.error(`Fehler im Command ${commandName}:`, error);

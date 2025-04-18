@@ -15,3 +15,20 @@ export function timeSince(timestamp) {
     }
     return `${seconds} Sekunden`;
 }
+
+export function presence(channelId) {
+    const data = {
+        kind: 1,
+        passive: true,
+        session_id: "",
+        data: { platform: "TWITCH", id: channelId },
+    };
+
+    return fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+}
