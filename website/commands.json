@@ -1,0 +1,78 @@
+[
+  {
+    "name": "add",
+    "description": "Added TupidBot in deinen Channel.",
+    "aliases": [
+      "join"
+    ]
+  },
+  {
+    "name": "commands",
+    "description": "Link zur TupidBot Website",
+    "aliases": [
+      "cmd"
+    ]
+  },
+  {
+    "name": "dana",
+    "description": "zufälliges Bild von Dana",
+    "aliases": [
+      "dana"
+    ]
+  },
+  {
+    "name": "frenn",
+    "description": "Zeigt Bilder von echten Freunden",
+    "aliases": [
+      "freunde"
+    ]
+  },
+  {
+    "name": "hi",
+    "description": "TupidBot sagt hi",
+    "aliases": [
+      "hi"
+    ]
+  },
+  {
+    "name": "joke",
+    "description": "Erzählt einen zufälligen Witz",
+    "aliases": [
+      "witz",
+      "lachen"
+    ]
+  },
+  {
+    "name": "julius",
+    "description": "julius stinkt",
+    "aliases": []
+  },
+  {
+    "name": "liste",
+    "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
+    "aliases": [
+      "list"
+    ]
+  },
+  {
+    "name": "ping",
+    "description": "pong",
+    "aliases": [
+      "pong"
+    ]
+  },
+  {
+    "name": "user",
+    "description": "Zeigt Informationen zum Benutzer",
+    "aliases": [
+      "u"
+    ]
+  },
+  {
+    "name": "weather",
+    "description": "Zeigt das Wetter einer Stadt an",
+    "aliases": [
+      "w"
+    ]
+  }
+]

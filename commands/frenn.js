@@ -4,7 +4,7 @@ const answers = ["https://imgur.com/NXpiK0f", "https://imgur.com/qsKbh37",
 export default {
     name: 'frenn',
     aliases: ['freunde'],
-    description: 'frenn',
+    description: 'Zeigt Bilder von echten Freunden',
     cooldown: 5,
     async execute(client, msg) {
         return { text: `nise ${answers[Math.floor(Math.random() * answers.length)]} frenn` };
