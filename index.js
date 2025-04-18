@@ -21,8 +21,10 @@ class Bot {
   constructor() {
     this.commands = new Map();
     this.channels = new Channels();
+
     this.cooldown = new Cooldown();
     this.config = config;
+
     this.utils = new Utils();
     this.db = new Database();
   }

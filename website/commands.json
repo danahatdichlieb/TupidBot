@@ -35,6 +35,17 @@
     ]
   },
   {
+    "name": "inv",
+    "description": "Zeigt dein Inventar mit Ressourcen und Coins.",
+    "aliases": [
+      "inventory",
+      "dia",
+      "gold",
+      "iron",
+      "coins"
+    ]
+  },
+  {
     "name": "joke",
     "description": "Erzählt einen zufälligen Witz",
     "aliases": [
@@ -55,11 +66,21 @@
     ]
   },
   {
+    "name": "mine",
+    "description": "Mine zufällige Ressourcen!",
+    "aliases": []
+  },
+  {
     "name": "ping",
     "description": "pong",
     "aliases": [
       "pong"
     ]
+  },
+  {
+    "name": "sell",
+    "description": "Verkaufe Ressourcen für Coins.",
+    "aliases": []
   },
   {
     "name": "user",
