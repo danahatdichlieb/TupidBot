@@ -14,7 +14,6 @@ export default {
       "ApuApustaja",
       `Uptime: ${timeSince(stats.runningSince)}`,
       `${channelsCount} Channels`,
-      ":)",
     ];
 
     return { text: messages.join(" | ") };
