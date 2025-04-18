@@ -35,7 +35,6 @@ export function timeAgo(date) {
   return `${diffInSeconds} Sekunden`;
 }
 
-
 export function presence(channelId) {
     const data = {
         kind: 1,
