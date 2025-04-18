@@ -43,7 +43,7 @@ export function presence(channelId) {
         data: { platform: "TWITCH", id: channelId },
     };
 
-    return fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
+    return fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
