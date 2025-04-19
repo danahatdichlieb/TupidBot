@@ -1,9 +1,0 @@
-export const channels = [
-  "#tupidbot",
-  "#jonasdirektschaltgetriebe",
-  "#danahatdichlieb",
-  "#feelsdankman_daniel",
-  "#lilb_lxryer",
-  "#koill33",
-  "#louis321"
-];

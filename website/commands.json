@@ -71,6 +71,11 @@
     "aliases": []
   },
   {
+    "name": "part",
+    "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
+    "aliases": []
+  },
+  {
     "name": "ping",
     "description": "pong",
     "aliases": [

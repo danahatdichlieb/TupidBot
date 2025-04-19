@@ -1,27 +1,46 @@
-import fs from 'fs';
-import { channels } from '../utils/channels.js';
+import Database from "../db/Database.js";
 
 export default {
     name: "add",
     aliases: ["join"],
     description: "Added TupidBot in deinen Channel.",
-    cooldown: 5,
+    cooldown: 30,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();
-        const channelToAdd = `#${username}`;
+        const channelName = `#${username}`;
 
-        if (!channels.includes(channelToAdd)) {
-            channels.push(channelToAdd);
+        const db = new Database();
 
-            fs.writeFile('./utils/channels.js', `export const channels = ${JSON.stringify(channels, null, 2)};`, (err) => {
-                if (err) {
-                    return { text: `not Olrite}` };
-                } else {
-                    return { text: `Olrite` };
-                }
-            });
-        } else {
-            return { text: `FeelsDankMan TupidBot ist bereits im Channel "${username}".` };
+        try {
+            const existing = await db.query(
+                `SELECT name FROM channels WHERE name = ? LIMIT 1`,
+                [channelName]
+            );
+
+            if (existing.length === 0) {
+                // Channel in DB speichern
+                await db.query(`INSERT INTO channels (name) VALUES (?)`, [channelName]);
+
+                // Bot joint Channel
+                await chat.join(channelName);
+
+                // Willkommensnachricht senden
+                await chat.say(channelName, "peepoHappy TupidBot ist erfolgreich deinem Channel gejoined. Der Standardprefix ist „+“. Alle Commands des Bots findet man hier: https://tupidbot.vercel.app/");
+
+                return {
+                    text: `peepoHappy TupidBot ist dem Channel @${username} gejoined.`
+                };
+            } else {
+                return {
+                    text: `FeelsDankMan TupidBot ist bereits in deinem Channel.`
+                };
+            }
+
+        } catch (error) {
+            console.error("[add.js Fehler]", error);
+            return {
+                text: `Es ist ein Fehler aufgetreten.`
+            };
         }
-    },
+    }
 };

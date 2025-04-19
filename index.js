@@ -7,7 +7,6 @@ dotenv.config({ path: path.resolve(__dirname, 'api/.env') });
 import { ChatClient } from "@mastondzn/dank-twitch-irc";
 import { loadCommands } from "./utils/loadCommands.js";
 import { handleCommand } from "./utils/handleCommand.js";
-import { channels } from "./utils/channels.js";
 import { stats } from "./utils/stats.js";
 import { timeSince, timeAgo } from "./utils/utils.js";
 import { Cooldown } from "./utils/cooldown.js";
@@ -50,11 +49,6 @@ const chat = new ChatClient({
 
 const commands = await loadCommands();
 
-chat.on("ready", () =>
-    console.log(`TupidBot joined in ${channels.length} Channels!`)
-);
-chat.on("close", (error) => error && console.error("Fehler:", error));
-
 chat.on("PRIVMSG", async (msg) => {
   handleCommand(chat, msg, commands, PREFIX);
   console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
@@ -62,7 +56,16 @@ chat.on("PRIVMSG", async (msg) => {
 
 async function startBot() {
   await chat.connect();
-  channels.forEach((channel) => chat.join(channel));
+
+  // Lade Channels aus der Datenbank
+  const db = new Database();
+  const channelList = await db.query("SELECT name FROM channels");
+
+  for (const row of channelList) {
+    const channelName = row.name;
+    await chat.join(channelName);
+    console.log(`✅ Joined Channel: ${channelName}`);
+  }
 }
 
 startBot();
