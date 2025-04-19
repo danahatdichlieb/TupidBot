@@ -8,7 +8,9 @@ export default {
   aliases: ["pong"],
   cooldown: 3,
   async execute(chat, msg, args) {
-    const channelsCount = bot.channels.getAll().length;
+    // Warten, bis die Kanäle aus der Datenbank abgerufen wurden
+    const channels = await bot.channels.getAll();
+    const channelsCount = channels.length;
 
     const messages = [
       "ApuApustaja",
