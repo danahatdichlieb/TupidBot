@@ -6,14 +6,12 @@ export default {
     cooldown: 30,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();
-        const channelName = `#${username}`;  // Channelname des Nutzers, der den Befehl ausführt
+        const channelName = `#${username}`;
         const db = new Database();
 
         try {
-            // Bot verlässt den Channel des Nutzers
             await chat.part(channelName);
 
-            // Channel aus der Datenbank entfernen
             await db.query('DELETE FROM channels WHERE name = ?', [channelName]);
 
             return {

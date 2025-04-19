@@ -18,13 +18,10 @@ export default {
             );
 
             if (existing.length === 0) {
-                // Channel in DB speichern
                 await db.query(`INSERT INTO channels (name) VALUES (?)`, [channelName]);
 
-                // Bot joint Channel
                 await chat.join(channelName);
 
-                // Willkommensnachricht senden
                 await chat.say(channelName, "peepoHappy TupidBot ist erfolgreich deinem Channel gejoined. Der Standardprefix ist „+“. Alle Commands des Bots findet man hier: https://tupidbot.vercel.app/");
 
                 return {
