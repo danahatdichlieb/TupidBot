@@ -15,7 +15,7 @@ export default {
             await db.query('DELETE FROM channels WHERE name = ?', [channelName]);
 
             return {
-                text: `peepoSad TupidBot hat Channel @${username}} verlassen.`
+                text: `peepoSad TupidBot hat Channel @${username} verlassen.`
             };
         } catch (error) {
             console.error("[part.js Fehler]", error);
