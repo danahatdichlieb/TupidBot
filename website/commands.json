@@ -35,17 +35,6 @@
     ]
   },
   {
-    "name": "inv",
-    "description": "Zeigt dein Inventar mit Ressourcen und Coins.",
-    "aliases": [
-      "inventory",
-      "dia",
-      "gold",
-      "iron",
-      "coins"
-    ]
-  },
-  {
     "name": "joke",
     "description": "Erzählt einen zufälligen Witz",
     "aliases": [
@@ -66,11 +55,6 @@
     ]
   },
   {
-    "name": "mine",
-    "description": "Mine zufällige Ressourcen!",
-    "aliases": []
-  },
-  {
     "name": "part",
     "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
     "aliases": []
@@ -83,9 +67,11 @@
     ]
   },
   {
-    "name": "sell",
-    "description": "Verkaufe Ressourcen für Coins.",
-    "aliases": []
+    "name": "timer",
+    "description": "Setzt einen Timer",
+    "aliases": [
+      "t"
+    ]
   },
   {
     "name": "user",

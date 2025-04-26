@@ -39,7 +39,7 @@ export function timeAgo(date) {
   return `${diffInSeconds} Sekunden`;
 }
 
-export function presence(channelId) {
+export async function presence(channelId) {
     const data = {
         kind: 1,
         passive: true,
@@ -47,11 +47,23 @@ export function presence(channelId) {
         data: { platform: "TWITCH", id: channelId },
     };
 
-    return fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    });
+    try {
+        const res = await fetch(`https://7tv.io/v3/users/01JQMW0JPWGEA83RDFBZWED3NZ/presences`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!res.ok) {
+            console.warn(`status ${res.status}`);
+        }
+
+        return res;
+    } catch (error) {
+        console.warn("⚠️  Fehler Senden der Präsenz:", error.message);
+        return null; // optional fallback
+    }
 }
+
