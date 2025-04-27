@@ -31,6 +31,7 @@ export async function handleCommand(bot, msg, PREFIX) {
         const response = await command.execute(msg, args);
         if (response?.text) {
             await bot.chat.sendRaw(`PRIVMSG #${msg.channelName} :${response.text}`);
+            await presence(msg.channelID);
         }
     } catch (error) {
         console.error(`Fehler im Command ${commandName}:`, error);
