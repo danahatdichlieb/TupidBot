@@ -7,6 +7,7 @@ export default {
     aliases: ["u"],
     description: "Zeigt Informationen zum Benutzer",
     cooldown: 5,
+    permission: 0,
     async execute(chat, msg, args) {
         const username = args.length > 0 ? args[0] : msg.ircPrefix.nickname.toLowerCase();
 

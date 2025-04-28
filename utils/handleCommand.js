@@ -15,7 +15,37 @@ export async function handleCommand(bot, msg, PREFIX) {
     const userPermissionLevel = bot.permissions.get(userId, badges);
 
     if (userPermissionLevel < command.permission) {
-        console.log(`${msg.senderUsername} hat keine Berechtigung, diesen Befehl auszuführen.`);
+        const cooldownKey = `${commandName}:${userId}`;
+        if (await bot.cooldowns.has(cooldownKey)) {
+            return;
+        }
+        await bot.cooldowns.set(cooldownKey, 10);
+
+        let permissionMessage = "";
+        switch (command.permission) {
+            case bot.permissions.list.vip:
+                permissionMessage = "Du musst VIP sein, um diesen Befehl zu benutzen.";
+                break;
+            case bot.permissions.list.mod:
+                permissionMessage = "Du musst Moderator sein, um diesen Befehl zu benutzen.";
+                break;
+            case bot.permissions.list.broadcaster:
+                permissionMessage = "Nur der Broadcaster kann diesen Befehl benutzen.";
+                break;
+            case bot.permissions.list.admin:
+                permissionMessage = "Du musst Admin sein, um diesen Befehl zu benutzen.";
+                break;
+            case bot.permissions.list.superadmin:
+                permissionMessage = "Nur der Super-Admin kann diesen Befehl benutzen.";
+                break;
+            case bot.permissions.list.owner:
+                permissionMessage = "Nur der Owner kann diesen Befehl benutzen.";
+                break;
+            default:
+                permissionMessage = "Du hast keine Berechtigung für diesen Befehl.";
+        }
+
+        await bot.chat.sendRaw(`PRIVMSG #${msg.channelName} :${permissionMessage}`);
         return;
     }
 

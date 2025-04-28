@@ -10,6 +10,7 @@ export default {
   description: "zufälliges Bild von Dana",
   aliases: ["dana"],
   cooldown: 5,
+  permission: 0,
   async execute(chat, msg, args) {
     const dana =
       danaData.data[Math.floor(Math.random() * danaData.data.length)];

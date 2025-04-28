@@ -3,6 +3,7 @@ export default {
   aliases: ["witz", "lachen"],
   description: "Erzählt einen zufälligen Witz",
   cooldown: 5,
+  permission: 0,
   async execute(chat, msg) {
     try {
       const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single&lang=de");

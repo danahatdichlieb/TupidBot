@@ -7,7 +7,7 @@ export default {
   description: "pong",
   aliases: ["pong"],
   cooldown: bot.cooldowns.veryShort,
-  permission: bot.permissions.superadmin,
+  permission: 0,
   async execute(chat, msg, args) {
     const channels = await bot.channels.getAll();
     const channelsCount = channels.length;

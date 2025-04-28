@@ -3,6 +3,7 @@ export default {
     aliases: ["t"],
     description: "Setzt einen Timer",
     cooldown: 5,
+    permission: 0,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();
         const channelName = msg.channelName;

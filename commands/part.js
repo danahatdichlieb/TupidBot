@@ -4,6 +4,7 @@ export default {
     name: "part",
     description: "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
     cooldown: 30,
+    permission: 0,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();
         const channelName = `#${username}`;
