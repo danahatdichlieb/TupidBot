@@ -10,13 +10,11 @@ import Permissions from "./utils/permissions.js";
 import Database from "./db/Database.js";
 import fs from "fs";
 import Channels from './utils/channels.js';
-
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, 'api/.env') });
-
 const config = JSON.parse(await fs.promises.readFile("config.json", "utf8"));
+
 const PREFIX = "+";
 
 class Bot {
@@ -42,7 +40,7 @@ class Bot {
         commands.forEach((cmd, name) => this.commands.set(name, cmd));
 
         this.chat.on("PRIVMSG", async (msg) => {
-            await handleCommand(this, msg, PREFIX);
+            await handleCommand(this, this.chat, msg, this.commands, PREFIX);
             console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
         });
 

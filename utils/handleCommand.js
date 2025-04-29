@@ -1,7 +1,7 @@
 import { bot } from '../bot.js';
 import { presence } from './utils.js';
 
-export async function handleCommand(bot, msg, PREFIX) {
+export async function handleCommand(bot, chat, msg, commands, PREFIX) {
     if (!msg.messageText.startsWith(PREFIX)) return;
 
     const args = msg.messageText.slice(PREFIX.length).trim().split(" ");
