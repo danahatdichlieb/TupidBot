@@ -8,7 +8,7 @@ export default {
     description: "Zeigt Informationen zum Benutzer",
     cooldown: 5,
     permission: 0,
-    async execute(msg, args) {
+    async execute(chat, msg, args) {
         const username = args.length > 0 ? args[0] : msg.ircPrefix.nickname.toLowerCase();
 
         const accessToken = process.env.TWITCH_ACCESS_TOKEN;

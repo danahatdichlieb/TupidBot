@@ -5,7 +5,7 @@ export default {
   description: "julius stinkt",
   cooldown: 5,
   permission: 0,
-  async execute(client, msg) {
+  async execute(chat, msg, args) {
     return { text: answers[Math.floor(Math.random() * answers.length)] };
   },
 };

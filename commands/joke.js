@@ -4,7 +4,7 @@ export default {
   description: "Erzählt einen zufälligen Witz",
   cooldown: 5,
   permission: 0,
-  async execute(chat, msg) {
+  async execute(chat, msg, args) {
     try {
       const response = await fetch("https://v2.jokeapi.dev/joke/Any?type=single&lang=de");
       const data = await response.json();

@@ -7,7 +7,7 @@ export default {
     description: 'Zeigt Bilder von echten Freunden',
     cooldown: 5,
     permission: 0,
-    async execute(client, msg) {
+    async execute(chat, msg, args) {
         return { text: `glorpNice ${answers[Math.floor(Math.random() * answers.length)]} frenn` };
     },
 };

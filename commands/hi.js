@@ -4,7 +4,7 @@ export default {
   description: "TupidBot sagt hi",
   cooldown: 5,
   permission: 0,
-  async execute(chat, msg) {
+  async execute(chat, msg, args) {
     return { text: `hi` };
   },
 };

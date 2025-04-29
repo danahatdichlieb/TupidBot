@@ -58,7 +58,7 @@ export async function handleCommand(bot, chat, msg, commands, PREFIX) {
     bot.cooldowns.set(cooldownKey, commandCooldown);
 
     try {
-        const response = await command.execute(msg, args);
+        const response = await command.execute(chat, msg, args);
         if (response?.text) {
             await bot.chat.sendRaw(`PRIVMSG #${msg.channelName} :${response.text}`);
             await presence(msg.channelID);
