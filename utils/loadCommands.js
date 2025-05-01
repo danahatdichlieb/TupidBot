@@ -29,6 +29,6 @@ export async function loadCommands() {
     JSON.stringify(commandArray, null, 2)
   );
 
-  console.log(`✅ ${commands.size} Commands geladen!`);
+  console.log(`${commandFiles?.length} Commands geladen`);
   return commands;
 }

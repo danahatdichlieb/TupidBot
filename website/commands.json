@@ -1,13 +1,5 @@
 [
   {
-    "name": "7tvset",
-    "description": "Zeigt 7tv Informationen zu einem Emote-Set",
-    "aliases": [
-      "stvset",
-      "set"
-    ]
-  },
-  {
     "name": "7tvuser",
     "description": "Zeigt 7tv Informationen zu einem Benutzer",
     "aliases": [
