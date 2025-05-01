@@ -3,6 +3,16 @@ import fetch from 'node-fetch';
 
 dotenv.config();
 
+const countryCodeToEmoji = {
+    "DE": "🇩🇪",
+    "US": "🇺🇸",
+    "FR": "🇫🇷",
+    "GB": "🇬🇧",
+    "IT": "🇮🇹",
+    "ES": "🇪🇸",
+    "JP": "🇯🇵",
+};
+
 export default {
     name: "weather",
     aliases: ["w"],
@@ -29,22 +39,21 @@ export default {
 
             const { name, main, weather, sys } = data;
             const description = weather[0].description;
+            const country = sys.country.toUpperCase();
+            const countryEmoji = countryCodeToEmoji[country] || '';
             const temp = main.temp;
             const feels_like = main.feels_like;
-            const temp_min = main.temp_min;
-            const temp_max = main.temp_max;
             const sunrise = new Date(sys.sunrise * 1000).toLocaleTimeString("de-DE", { timeZone: "Europe/Berlin" });
             const sunset = new Date(sys.sunset * 1000).toLocaleTimeString("de-DE", { timeZone: "Europe/Berlin" });
 
             const messages = [
-                `${name}`,
+                `${name} ${countryEmoji}`,
                 `${description}, ${temp}°C (gefühlt: ${feels_like}°C)`,
-                `🔺${temp_max}°C 🔻${temp_min}°C`,
                 `🌅 Sonnenaufgang: ${sunrise}`,
                 `🌇 Sonnenuntergang: ${sunset}`
             ];
 
-            return { text: messages.join(" , ") };
+            return { text: messages.join(" | ") };
 
         } catch (error) {
             console.error("Fehler beim Abrufen der Wetterdaten:", error);
