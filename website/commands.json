@@ -64,6 +64,17 @@
     ]
   },
   {
+    "name": "mods",
+    "description": "Gibt eine Liste zu allen Mods eines Channels",
+    "aliases": [
+      "getmods",
+      "modslist",
+      "vips",
+      "allmods",
+      "allvips"
+    ]
+  },
+  {
     "name": "part",
     "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
     "aliases": []

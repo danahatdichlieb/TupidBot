@@ -17,7 +17,7 @@ async function getClient() {
         const config = await loadConfig();
 
         const gql = got.extend({
-            prefixUrl: 'https://7tv.io/v3/', // Wichtig: prefixUrl statt url
+            prefixUrl: 'https://7tv.io/v3/',
             throwHttpErrors: false,
             responseType: 'json',
             headers: {
@@ -27,7 +27,7 @@ async function getClient() {
 
         async function makeRequest(query) {
             try {
-                const gqlReq = await gql.post('gql', { json: query }).json(); // Pfad muss hier nur "gql" sein
+                const gqlReq = await gql.post('gql', { json: query }).json();
                 return gqlReq;
             } catch (error) {
                 console.error('GraphQL-Anfrage fehlgeschlagen:', error.message);
@@ -39,18 +39,18 @@ async function getClient() {
             const query = {
                 operationName: 'GetUserEditorOf',
                 query: `query GetUserEditorOf($id: ObjectID!) {
-                    user(id: $id) {
-                        id
-                        editor_of {
-                            user {
-                                id
-                                username
-                                display_name
-                                roles
-                            }
-                        }
-                    }
-                }`,
+					user(id: $id) {
+						id
+						editor_of {
+							user {
+								id
+								username
+								display_name
+								roles
+							}
+						}
+					}
+				}`,
                 variables: { id: stvID },
             };
 
@@ -62,7 +62,34 @@ async function getClient() {
             return res.data.user;
         };
 
-        client = { GetEditorOfChannels };
+        const GetChannelRoles = async (channelID) => {
+            const query = {
+                operationName: 'UserRolesCacheQuery',
+                variables: {
+                    channelID: channelID,
+                    includeArtists: true,
+                    includeEditors: false,
+                    includeMods: false,
+                    includeVIPs: false,
+                },
+                extensions: {
+                    persistedQuery: {
+                        version: 1,
+                        sha256Hash: 'a0a9cd40e047b86927bf69b801e0a78745487e9560f3365fed7395e54ca82117',
+                    },
+                },
+            };
+
+            const res = await makeRequest(query);
+            if (!res) {
+                console.warn(`Fehler der Rollen für: ${channelID}`);
+                return null;
+            }
+
+            return res;
+        };
+
+        client = { GetEditorOfChannels, GetChannelRoles };
     }
 
     return client;
@@ -71,4 +98,9 @@ async function getClient() {
 export async function GetEditorOfChannels(stvID) {
     const { GetEditorOfChannels } = await getClient();
     return await GetEditorOfChannels(stvID);
+}
+
+export async function GetChannelRoles(channelID) {
+    const { GetChannelRoles } = await getClient();
+    return await GetChannelRoles(channelID);
 }
