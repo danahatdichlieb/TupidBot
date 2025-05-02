@@ -36,7 +36,7 @@ export default {
         const shortenedTitle = title.length > 30 ? title.slice(0, 30) + '...' : title;
 
         return {
-            text: `ApuApustaja @${user_name} ist seit ${humanizeDuration(ms, 2)} live | Spielt ${game_name} mit ${viewer_count} Zuschauern | Titel: ${shortenedTitle} | twitch.tv/${user_login} |`,
+            text: `ApuApustaja @${user_name} ist seit ${humanizeDuration(ms, 2)} live | Spielt ${game_name} mit ${viewer_count} Zuschauern | Titel: ${shortenedTitle} | twitch.tv/${user_login} | nymnCorn  `,
             reply: true,
         };
     },
