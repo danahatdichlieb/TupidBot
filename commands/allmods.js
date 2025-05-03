@@ -44,7 +44,7 @@ export default {
         } catch (e) {
             console.log(e);
             return {
-                text: 'Channel nicht gefunden',
+                text: 'FeelsDankMan Channel nicht gefunden',
                 reply: true,
             };
         }
