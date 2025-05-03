@@ -8,7 +8,7 @@ export default {
     cooldown: 5,
     permission: 0,
     async execute(chat, msg, args) {
-        const targetUser = ParseUser(msg.args?.[0] ?? msg.ircPrefix?.nickname?.toLowerCase() ?? "");
+        const targetUser = ParseUser(args[0] ?? msg.ircPrefix?.nickname?.toLowerCase());
         if (!/^[A-Z_\d]{2,26}$/i.test(targetUser)) {
             return {
                 text: 'malformed username parameter',
