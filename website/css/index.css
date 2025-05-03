@@ -84,6 +84,22 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+  }
+  .flexbox-item {
+    margin-top: 5rem;
+  }
+  .info-grid {
+    margin-bottom: 20px;
+    height: 100%;
+  }
+  .footer {
+    display: none;
+  }
+}
+
 .flexbox-item {
   background-color: #1c2128;
   padding: 2rem;
