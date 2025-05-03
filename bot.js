@@ -28,7 +28,7 @@ class Bot {
         this.chat = new ChatClient({
             username: config.USERNAME,
             password: config.PASSWORD,
-            connection: { type: "websocket", secure: true },
+            connection: {type: "websocket", secure: true},
         });
     }
 
@@ -44,10 +44,21 @@ class Bot {
             console.log(`[#${msg.channelName}] ${msg.displayName}: ${msg.messageText}`);
         });
 
+        const activeTimers = await this.db.getActiveTimers();
+        activeTimers.forEach(timer => {
+            const delay = timer.fireAt - Math.floor(Date.now() / 1000);
+            if (delay > 0) {
+                setTimeout(async () => {
+                    await this.chat.say(timer.channel, `DinkDonk | @${timer.username} | Timer abgelaufen | ${timer.message}`);
+                    await this.db.deleteTimer(timer.id);
+                }, delay * 1000);
+            }
+        });
+
         await this.chat.connect();
 
         const channelList = await this.db.query("SELECT name FROM channels");
-        for (const { name } of channelList) {
+        for (const {name} of channelList) {
             await this.chat.join(name);
             console.log(`Joined Channel: ${name}`);
         }

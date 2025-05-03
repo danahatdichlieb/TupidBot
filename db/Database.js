@@ -41,6 +41,23 @@ class Database {
         const rows = await this.query(`${queryStr}${addLimit ? ' LIMIT 1' : ''}`, params);
         return rows.length > 0;
     }
+
+    async addTimer(username, channel, message, fireAt) {
+        const result = await this.query(
+            `INSERT INTO timers (username, channel, message, fireAt) VALUES (?, ?, ?, ?)`,
+            [username, channel, message, fireAt]
+        );
+        return result.insertId; // gibt die ID zurück
+    }
+
+    async getActiveTimers() {
+        const now = Math.floor(Date.now() / 1000);
+        return await this.query(`SELECT * FROM timers WHERE fireAt > ?`, [now]);
+    }
+
+    async deleteTimer(id) {
+        await this.query(`DELETE FROM timers WHERE id = ?`, [id]);
+    }
 }
 
 export default Database;
