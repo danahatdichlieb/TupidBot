@@ -47,7 +47,7 @@ class Database {
             `INSERT INTO timers (username, channel, message, fireAt) VALUES (?, ?, ?, ?)`,
             [username, channel, message, fireAt]
         );
-        return result.insertId; // gibt die ID zurück
+        return result.insertId;
     }
 
     async getActiveTimers() {
