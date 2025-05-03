@@ -17,6 +17,7 @@ export async function loadCommands() {
       name: command.default.name,
       description: command.default.description || "",
       aliases: command.default.aliases || [],
+      cooldown: command.default.cooldown || "",
     });
 
     for (const alias of command.default.aliases || []) {

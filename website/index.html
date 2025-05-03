@@ -1,68 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TupidBot</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/stars.css" />
-  </head>
-  <body>
-    <div class="stars"></div>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TupidBot</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/stars.css" />
+</head>
+<body>
+<div class="stars"></div>
 
-    <header class="header">
-      <div class="header-content">
-        <img src="assets/logo.png" alt="Logo" class="logo" />
-
-        <div class="nav-buttons">
-          <nav class="nav">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="commands.html">Commands</a></li>
-              <!--
-                    <li><a href="#">Channels</a></li>
-                    -->
-            </ul>
-          </nav>
-          <!--
-            <button class="cta-button">Login with Twitch</button>
-            -->
-        </div>
-      </div>
-    </header>
-
-    <div class="flexbox-panel">
-      <div class="flexbox-item">
-        <h1>TupidBot</h1>
-        <p>
-          TupidBot sorgt mit einer Reihe von spaßigen und praktischen Befehlen
-          für Unterhaltung im Chat.
-        </p>
-      </div>
-      <div class="flexbox-item">
-        <h1>Commands</h1>
-        <p>
-          TupidBot ermöglicht es dir, Befehle einfach im Chat auszuführen. Um
-          einen Befehl zu nutzen, gib einfach das Präfix "<a class="highlight"
-            >+</a
-          >" gefolgt vom Command-Namen ein. Zum Beispiel, um den Ping-Befehl zu
-          verwenden, schreibe "<a class="highlight">+ping</a>"
-        </p>
-        <a href="commands.html">
-          <button class="cta-button">Commands</button>
-        </a>
-      </div>
+<header class="header">
+  <div class="header-content">
+    <a href="index.html">
+      <img src="assets/logo.png" alt="TupidBot Logo" class="logo" />
+    </a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="commands.html">Commands</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="main-content">
+  <section class="flexbox-panel">
+    <div class="flexbox-item">
+      <h1>
+        <span class="highlight">TupidBot</span>
+      </h1>
+      <p>
+        TupidBot sorgt mit einer Reihe von spaßigen und praktischen Befehlen
+        für Unterhaltung im Chat.
+      </p>
     </div>
 
-    <footer class="footer">
-      <div class="footer-content">
-        <p>
-          made with ❤️ | <a href="https://twitch.tv/danahatdichlieb">Dana</a> &
-          <a href="https://twitch.tv/JONASDIREKTSCHALTGETRIEBE">Jonas</a>
-        </p>
-      </div>
-    </footer>
+    <div class="flexbox-item">
+      <h1>Commands</h1>
+      <p>
+        TupidBot ermöglicht es dir, Befehle einfach im Chat auszuführen.
+        Um einen Befehl zu nutzen, gib einfach das Präfix
+        "<span class="highlight">+</span>" gefolgt vom Befehl ein.
+        Zum Beispiel: "<span class="highlight">+ping</span>"
+      </p>
+      <a href="commands.html">
+        <button class="cta-button">Commands ansehen</button>
+      </a>
+    </div>
+  </section>
 
-    <script src="stars.js"></script>
-  </body>
+  <section class="info-grid">
+    <div class="info-box">
+      <h2>Features</h2>
+      <p>
+        Mit einer Vielzahl von <span class="highlight">Commands</span> sorgt er für mehr Unterhaltung im Chat. Ideal für jeden Chat, der mehr <span class="highlight">Spaß</span> und <span class="highlight">Dynamik</span> braucht!
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h2>Bot hinzufügen</h2>
+      <p>
+        Um TupidBot zu deinem Channel hinzuzufügen, schreibe einfach <span class="highlight">+add</span> im Chat von TupidBot.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h2>Fragen</h2>
+      <p>
+        Bei Fragen zum Bot melde dich gerne bei
+        <a href="https://twitch.tv/danahatdichlieb" target="_blank">danahatdichlieb</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>
+      made with ❤️ |
+      <a href="https://twitch.tv/danahatdichlieb" target="_blank">Dana</a> &amp;
+      <a href="https://twitch.tv/JONASDIREKTSCHALTGETRIEBE" target="_blank">Jonas</a>
+    </p>
+  </div>
+</footer>
+
+<script src="auth.js" defer></script>
+<script src="stars.js"></script>
+</body>
 </html>

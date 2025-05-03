@@ -6,14 +6,16 @@
       "7tvu",
       "stvu",
       "s"
-    ]
+    ],
+    "cooldown": 3
   },
   {
     "name": "add",
     "description": "Added TupidBot in deinen Channel.",
     "aliases": [
       "join"
-    ]
+    ],
+    "cooldown": 30
   },
   {
     "name": "mods",
@@ -24,35 +26,40 @@
       "vips",
       "allmods",
       "allvips"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "commands",
     "description": "Link zur TupidBot Website",
     "aliases": [
       "cmd"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "dana",
     "description": "zufälliges Bild von Dana",
     "aliases": [
       "dana"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "frenn",
     "description": "Zeigt Bilder von echten Freunden",
     "aliases": [
       "freunde"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "hi",
     "description": "TupidBot sagt hi",
     "aliases": [
       "hi"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "joke",
@@ -60,58 +67,67 @@
     "aliases": [
       "witz",
       "lachen"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "julius",
     "description": "julius stinkt",
-    "aliases": []
+    "aliases": [],
+    "cooldown": 5
   },
   {
     "name": "liste",
     "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
     "aliases": [
       "list"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "part",
     "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
-    "aliases": []
+    "aliases": [],
+    "cooldown": 30
   },
   {
     "name": "ping",
     "description": "pong",
     "aliases": [
       "pong"
-    ]
+    ],
+    "cooldown": 3
   },
   {
     "name": "randomstream",
     "description": "Gibt einen random Stream",
     "aliases": [
       "rs"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "timer",
     "description": "Setzt einen Timer",
     "aliases": [
       "t"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "user",
     "description": "Zeigt Informationen zum Benutzer",
     "aliases": [
       "u"
-    ]
+    ],
+    "cooldown": 5
   },
   {
     "name": "weather",
     "description": "Zeigt das Wetter einer Stadt an",
     "aliases": [
       "w"
-    ]
+    ],
+    "cooldown": 5
   }
 ]

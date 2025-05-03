@@ -1,187 +1,197 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  background: linear-gradient(#111112, #0e0e0e);
-  background-attachment: fixed;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
 }
 
 .header {
-  background: linear-gradient(70deg, #111112, #191818, #111112);
-  padding: 10px;
-  border-bottom: 1px solid rgba(182, 156, 156, 0.19);
-  position: fixed;
-  width: 100%;
+  background-color: #161b22;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 1000;
-  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+  z-index: 10;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
-  padding: 0 20px;
-  max-width: 60%;
 }
 
 .logo {
-  height: 30px;
+  height: 40px;
 }
 
-.nav-buttons {
+.nav-list {
+  list-style: none;
   display: flex;
-  align-items: center;
-  transition: 0.5s;
-}
-
-.nav ul {
-  list-style-type: none;
-  display: flex;
-  padding: 0;
+  gap: 2rem;
   margin: 0;
+  padding: 0;
 }
 
-.nav ul li {
-  margin: 0 15px;
-}
-
-.nav ul li a {
+.nav-list a {
   text-decoration: none;
-  color: #989898;
-  font-size: 18px;
-  font-weight: bold;
+  color: #e6edf3;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.nav ul li a:hover {
-  color: #ffffff;
+.nav-list a:hover {
+  color: #58a6ff;
 }
 
-.cta-button {
-  background-color: rgba(255, 255, 255, 0.09);
-  color: white;
-  border: solid 1px #1f1e22;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.35));
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
 }
 
 .flexbox-panel {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto 4rem auto;
+}
+
+@media (min-width: 768px) {
+  .flexbox-panel {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .info-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .flexbox-item {
-  flex: 0 1 auto;
-  background: linear-gradient(70deg, #232325, #191818, #232325);
-  border: 1px solid rgba(128, 117, 117, 0.19);
-  border-radius: 20px;
-  padding: 15px;
-  color: #bababa;
-  transition: 0.5s;
-  width: 50vh;
-  height: 25vh;
-  filter: drop-shadow(0px 12px 10px rgba(0, 0, 0, 0.44));
+  background-color: #1c2128;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  flex: 1;
+  transition: transform 0.3s ease;
 }
 
 .flexbox-item:hover {
-  color: white;
-  width: 56vh;
+  transform: translateY(-5px);
 }
 
-.flex-item:nth-child(1) {
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
+.flexbox-item h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
 
-.flex-item:nth-child(2) {
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
+.flexbox-item p {
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 .cta-button {
-  border: 1px solid rgba(128, 117, 117, 0.19);
-  border-radius: 10px;
-  transition: 0.5s;
-  filter: drop-shadow(0px 12px 10px rgba(255, 255, 255, 0.23));
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #238636;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-  border: 1px solid rgba(170, 165, 165, 0.19);
+  background-color: #2ea043;
 }
 
 .highlight {
-  filter: drop-shadow(0px 12px 10px rgba(255, 255, 255, 0.11));
+  color: #58a6ff;
+  font-weight: bold;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 2fr;
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-box {
+  background-color: #1c2128;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+}
+
+.info-box h2 {
   color: #ffffff;
-  background-color: #575252;
-  border-radius: 4px;
-  font-weight: 500;
-  padding: 2px 10px 2px 10px;
-  gap: 10px;
-  margin: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
+.info-box p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #e6edf3;
+}
+
+.info-box a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
 .footer {
-  background: linear-gradient(70deg, #111112, #191818, #111112);
-  padding: 10px;
-  border-top: 1px solid rgba(182, 156, 156, 0.19);
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  right: 0;
-  z-index: 100;
-  filter: drop-shadow(0px -12px 10px rgba(0, 0, 0, 0.35));
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #161b22;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8b949e;
 }
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0 20px;
-  max-width: 60%;
-  color: #736868;
+.footer a {
+  color: #58a6ff;
+  text-decoration: none;
 }
 
-.footer-content a {
-  color: #d3cbcb;
-}
-
-@media (max-width: 800px) {
-  .flexbox-panel {
-    flex-direction: column; /* Boxen untereinander anordnen */
-    align-items: center; /* Zentrieren der Boxen */
-  }
-
-  .flexbox-item {
-    width: 80vw; /* Breite der Boxen an den Bildschirm anpassen */
-    height: auto; /* Höhe der Boxen anpassen */
-  }
-
-  .flexbox-item:hover {
-    width: 85vw;
-  }
-
-  .logo {
-    margin-left: -15px;
-  }
+.footer a:hover {
+  text-decoration: underline;
 }
