@@ -5,7 +5,7 @@ export default {
     name: "mods",
     aliases: ["getmods", "modslist", "vips", "allmods", "allvips"],
     description: "Gibt eine Liste zu allen Mods eines Channels",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const targetUser = ParseUser(args[0] ?? msg.ircPrefix?.nickname?.toLowerCase());
