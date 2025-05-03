@@ -44,7 +44,7 @@ export default {
         } catch (e) {
             console.log(e);
             return {
-                text: 'error',
+                text: 'Channel nicht gefunden',
                 reply: true,
             };
         }
