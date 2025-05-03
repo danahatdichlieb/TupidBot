@@ -80,7 +80,7 @@ body {
 }
 
 #commands-list {
-  background-color: #16171c;
+  background-color: #1c2128;
   border-radius: 25px;
   padding: 2rem;
   max-height: 700px;
@@ -110,9 +110,9 @@ body {
 #commands-list div {
   margin-bottom: 15px;
   padding: 1.5rem;
-  background-color: rgba(35, 35, 37, 0.62);
+  background-color: rgba(21, 21, 21, 0.27);
   border-radius: 16px;
-  border: 1px solid #535050;
+  border: 1px solid #939393;
   transition: transform 0.3s ease, background-color 0.3s ease;
   color: #e6edf3;
   font-size: 1rem;
