@@ -81,7 +81,7 @@ body {
 
 #commands-list {
   background-color: #16171c;
-  border-radius: 16px;
+  border-radius: 25px;
   padding: 2rem;
   max-height: 700px;
   width: 40%;
@@ -94,7 +94,9 @@ body {
 @media (max-width: 768px) {
   #commands-list {
     width: 80%;
+    height: 70%;
     padding: 1.5rem;
+    margin-top: 10px;
   }
 }
 
