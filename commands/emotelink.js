@@ -1,4 +1,40 @@
-import { SearchSTVEmote } from "../token/stvGQL.js";
+async function getChannelEmotes(channelId) {
+    const query = `{
+            users {
+                userByConnection(platform: TWITCH, platformId: "${channelId}") {
+                    style {
+                        activeEmoteSet {
+                            id
+                            name
+                            capacity
+                            emotes {
+                                items {
+                                    id
+                                    alias
+                                }
+                                totalCount
+                            }
+                        }
+                    }
+                }
+            }
+        }`;
+
+
+    const url = 'https://7tv.io/v4/gql';
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query }),
+    };
+
+    const response = await fetch(url, options);
+    const data = await response.json();
+
+    return data.data.users.userByConnection.style.activeEmoteSet;
+}
 
 export default {
     name: "emotelink",
@@ -17,11 +53,9 @@ export default {
         const emoteName = args[0];
 
         try {
-            const emotesResponse = await SearchSTVEmote(emoteName);
+            const emoteSet = await getChannelEmotes(emoteName);
 
-            const emotes = emotesResponse?.data?.emotes?.items || [];
-
-            const emote = emotes.find(e => e.name.toLowerCase() === emoteName.toLowerCase());
+            const emote = emoteSet.emotes.items.find(e => e.alias === emoteName);
 
             if (!emote) {
                 return {
