@@ -53,7 +53,7 @@ export default {
         const emoteName = args[0];
 
         try {
-            const emoteSet = await getChannelEmotes(emoteName);
+            const emoteSet = await getChannelEmotes(msg.channelID);
 
             const emote = emoteSet.emotes.items.find(e => e.alias === emoteName);
 
@@ -68,7 +68,7 @@ export default {
             return {
                 text: `${emoteName} ${link}`,
                 reply: true,
-        };
+            };
         } catch (err) {
             console.error(err);
         }

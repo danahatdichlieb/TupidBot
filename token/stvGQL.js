@@ -123,37 +123,7 @@ async function getClient() {
             return searchEmote;
         };
 
-        const GetChannelEmotes = async (channelID) => {
-            const query = {
-                operationName: "UserEmotes",
-                query: `query UserEmotes($id: ObjectID!) {
-            user(id: $id) {
-                emotes {
-                    id
-                    name
-                    visibility
-                    listed
-                    mime
-                    owner {
-                        id
-                        username
-                        display_name
-                    }
-                }
-            }
-        }`,
-                variables: { id: channelID },
-            };
-
-            const res = await makeRequest(query);
-            if (!res?.data?.user?.emotes) {
-                return [];
-            }
-
-            return res.data.user.emotes;
-        };
-
-        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote, GetChannelEmotes };
+        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote };
     }
 
     return client;
@@ -174,8 +144,4 @@ export async function SearchSTVEmote(emote, exactMatch = false) {
     return await SearchSTVEmote(emote, exactMatch);
 }
 
-export async function GetChannelEmotes(channelID) {
-    const { GetChannelEmotes } = await getClient();
-    return await GetChannelEmotes(channelID);
-}
 
