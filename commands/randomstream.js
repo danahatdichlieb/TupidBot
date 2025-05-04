@@ -5,7 +5,7 @@ export default {
     name: "randomstream",
     aliases: ["rs"],
     description: "Gibt einen random Stream",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const topGames = await GetTopGames(100);

@@ -6,7 +6,7 @@ export default {
     name: "user",
     aliases: ["u"],
     description: "Zeigt Informationen zum Benutzer",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const username = args.length > 0 ? args[0] : msg.ircPrefix.nickname.toLowerCase();
@@ -28,8 +28,10 @@ export default {
 
             const user = response.data.data[0];
 
+            const shortenedDescription = user.description.length > 30 ? user.description.slice(0, 30) + '...' : user.description;
+
             const messages = [
-                `@${user.display_name} | ID: ${user.id} | Bio: ${user.description || "Keine Beschreibung"}`,
+                `imGlitch @${user.display_name} | ID: ${user.id} | Bio: ${shortenedDescription || "Keine Beschreibung"}`,
                 `Erstellt vor: ${timeAgo(user.created_at)}`
             ];
 

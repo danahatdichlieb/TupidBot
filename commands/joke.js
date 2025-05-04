@@ -2,7 +2,7 @@ export default {
   name: "joke",
   aliases: ["witz", "lachen"],
   description: "Erzählt einen zufälligen Witz",
-  cooldown: 5,
+  cooldown: 3,
   permission: 0,
   async execute(chat, msg, args) {
     try {

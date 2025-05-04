@@ -4,7 +4,7 @@ export default {
     name: "add",
     aliases: ["join"],
     description: "Added TupidBot in deinen Channel.",
-    cooldown: 30,
+    cooldown: 10,
     permission: 0,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();

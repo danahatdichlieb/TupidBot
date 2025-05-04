@@ -27,7 +27,7 @@
       "allmods",
       "allvips"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "commands",

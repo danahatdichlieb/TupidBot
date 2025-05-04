@@ -4,7 +4,7 @@ export default {
     name: "liste",
     aliases: ["list"],
     description: "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const list = args[0];

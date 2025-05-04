@@ -4,7 +4,7 @@ export default {
     name: "timer",
     aliases: ["t"],
     description: "Setzt einen Timer",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const username = msg.ircPrefix.nickname.toLowerCase();

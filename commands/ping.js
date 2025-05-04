@@ -9,7 +9,7 @@ export default {
   name: "ping",
   description: "pong",
   aliases: ["pong"],
-  cooldown: bot.cooldowns.veryShort,
+  cooldown: 3,
   permission: 0,
   async execute(chat, msg, args) {
     const channels = await bot.channels.getAll();

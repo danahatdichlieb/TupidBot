@@ -5,7 +5,7 @@ export default {
     name: 'frenn',
     aliases: ['freunde'],
     description: 'Zeigt Bilder von echten Freunden',
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         return { text: `glorpNice ${answers[Math.floor(Math.random() * answers.length)]} frenn` };

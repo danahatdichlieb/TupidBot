@@ -17,7 +17,7 @@ export default {
     name: "weather",
     aliases: ["w"],
     description: "Zeigt das Wetter einer Stadt an",
-    cooldown: 5,
+    cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const city = args[0];
