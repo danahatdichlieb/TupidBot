@@ -30,7 +30,7 @@ async function getClient() {
                 const gqlReq = await gql.post('gql', { json: query }).json();
                 return gqlReq;
             } catch (error) {
-                console.error('GraphQL-Anfrage fehlgeschlagen:', error.message);
+                console.error('GraphQL:', error.message);
                 return null;
             }
         }
@@ -89,7 +89,71 @@ async function getClient() {
             return res;
         };
 
-        client = { GetEditorOfChannels, GetChannelRoles };
+        const SearchSTVEmote = async (emote, exactMatch = false) => {
+            const query = {
+                variables: {
+                    query: emote,
+                    limit: 100,
+                    page: 1,
+                    filter: {
+                        case_sensitive: true,
+                        category: `TOP`,
+                        exact_match: exactMatch,
+                        ignore_tags: false,
+                    },
+                },
+                operationName: 'SearchEmotes',
+                query: `query SearchEmotes($query: String!, $page: Int, $limit: Int, $filter: EmoteSearchFilter) {
+    emotes(query: $query, page: $page, limit: $limit, filter: $filter) {
+        count
+        items {
+            id
+            name
+            listed
+            owner {
+                id
+                username
+                display_name
+            }
+        }
+    }
+}`,
+            };
+            const searchEmote = await makeRequest(query);
+            return searchEmote;
+        };
+
+        const GetChannelEmotes = async (channelID) => {
+            const query = {
+                operationName: "UserEmotes",
+                query: `query UserEmotes($id: ObjectID!) {
+            user(id: $id) {
+                emotes {
+                    id
+                    name
+                    visibility
+                    listed
+                    mime
+                    owner {
+                        id
+                        username
+                        display_name
+                    }
+                }
+            }
+        }`,
+                variables: { id: channelID },
+            };
+
+            const res = await makeRequest(query);
+            if (!res?.data?.user?.emotes) {
+                return [];
+            }
+
+            return res.data.user.emotes;
+        };
+
+        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote, GetChannelEmotes };
     }
 
     return client;
@@ -104,3 +168,14 @@ export async function GetChannelRoles(channelID) {
     const { GetChannelRoles } = await getClient();
     return await GetChannelRoles(channelID);
 }
+
+export async function SearchSTVEmote(emote, exactMatch = false) {
+    const { SearchSTVEmote } = await getClient();
+    return await SearchSTVEmote(emote, exactMatch);
+}
+
+export async function GetChannelEmotes(channelID) {
+    const { GetChannelEmotes } = await getClient();
+    return await GetChannelEmotes(channelID);
+}
+

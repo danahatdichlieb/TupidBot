@@ -15,7 +15,7 @@
     "aliases": [
       "join"
     ],
-    "cooldown": 30
+    "cooldown": 10
   },
   {
     "name": "mods",
@@ -35,7 +35,7 @@
     "aliases": [
       "cmd"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "dana",
@@ -43,7 +43,15 @@
     "aliases": [
       "dana"
     ],
-    "cooldown": 5
+    "cooldown": 3
+  },
+  {
+    "name": "emotelink",
+    "description": "Link zu einem 7TV-Emote aus dem Channel",
+    "aliases": [
+      "link"
+    ],
+    "cooldown": 3
   },
   {
     "name": "frenn",
@@ -51,7 +59,7 @@
     "aliases": [
       "freunde"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "hi",
@@ -59,7 +67,7 @@
     "aliases": [
       "hi"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "joke",
@@ -68,13 +76,13 @@
       "witz",
       "lachen"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "julius",
     "description": "julius stinkt",
     "aliases": [],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "liste",
@@ -82,13 +90,13 @@
     "aliases": [
       "list"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "part",
     "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
     "aliases": [],
-    "cooldown": 30
+    "cooldown": 10
   },
   {
     "name": "ping",
@@ -104,7 +112,7 @@
     "aliases": [
       "rs"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "timer",
@@ -112,7 +120,7 @@
     "aliases": [
       "t"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "user",
@@ -120,7 +128,7 @@
     "aliases": [
       "u"
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "weather",
@@ -128,6 +136,6 @@
     "aliases": [
       "w"
     ],
-    "cooldown": 5
+    "cooldown": 3
   }
 ]
