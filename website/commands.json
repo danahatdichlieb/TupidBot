@@ -70,6 +70,14 @@
     "cooldown": 3
   },
   {
+    "name": "cat",
+    "description": "Gibt Gemeine Sprüche",
+    "aliases": [
+      "catfact"
+    ],
+    "cooldown": 3
+  },
+  {
     "name": "hi",
     "description": "TupidBot sagt hi",
     "aliases": [

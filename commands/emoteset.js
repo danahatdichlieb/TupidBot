@@ -14,7 +14,6 @@ export default {
         const uid = await IDByLogin(targetUser);
 
         const setInfo = await getUser(uid);
-        console.log(setInfo);
         if (!setInfo) {
             return {
                 text: `User ${targetUser} nicht gefunden`,
