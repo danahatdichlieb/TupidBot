@@ -2,6 +2,7 @@ import { getUser, GlobalEmote } from '../token/stvREST.js';
 import { ParseUser, IDByLogin } from '../utils/twitch.js';
 import { GetEditorOfChannels } from '../token/stvGQL.js';
 import humanizeDuration from '../utils/humanizeDuration.js';
+import {antiPing} from "../utils/utils.js";
 
 export default {
     name: "7tvuser",
@@ -36,7 +37,7 @@ export default {
         const editorLabel = editor_of.length === 1 ? 'Channel' : 'Channels';
 
         return {
-            text: `${Emote} ${targetUser} - ${id} | Created ${createdAt} Ago | Emote Set:  ${emoteSet} used | Editor of ${editor_of.length} ${editorLabel}`,
+            text: `${Emote} ${antiPing(targetUser)} - ${id} | Created ${createdAt} Ago | Emote Set:  ${emoteSet} used | Editor of ${editor_of.length} ${editorLabel}`,
             reply: true,
         };
     },
