@@ -54,6 +54,14 @@
     "cooldown": 3
   },
   {
+    "name": "emoteset",
+    "description": "Gibt Informationen zu deinem Aktiven 7tv-Emote-Set",
+    "aliases": [
+      "set"
+    ],
+    "cooldown": 3
+  },
+  {
     "name": "frenn",
     "description": "Zeigt Bilder von echten Freunden",
     "aliases": [

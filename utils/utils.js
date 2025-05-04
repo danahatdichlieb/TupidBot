@@ -66,3 +66,10 @@ export async function presence(channelId) {
         return null;
     }
 }
+
+export function antiPing(text = '') {
+    const [start = '', ...rest] = text;
+    const end = rest.pop() || '';
+
+    return `${start}\u{E0000}${rest.join('')}${rest.length ? '\u{E0000}' : ''}${end}`;
+}
