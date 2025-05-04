@@ -23,7 +23,7 @@ export default {
             });
 
             if (response.data.data.length === 0) {
-                return { text: `Benutzer ${username} nicht gefunden.` };
+                return { text: `FeelsDankMan @${username} nicht gefunden.` };
             }
 
             const user = response.data.data[0];
@@ -37,8 +37,7 @@ export default {
 
             return { text: messages.join(" | ") };
         } catch (error) {
-            console.error("Fehler beim Abrufen der User-Daten:", error.response?.data || error.message);
-            return { text: "Olrite." };
+            return { text: "FeelsDankMan @${username} nicht gefunden." };
         }
     }
 };
