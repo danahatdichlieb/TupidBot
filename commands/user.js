@@ -23,7 +23,7 @@ export default {
             });
 
             if (response.data.data.length === 0) {
-                return { text: `FeelsDankMan @${username} nicht gefunden.` };
+                return { text: `FeelsDankMan user @${username} nicht gefunden.` };
             }
 
             const user = response.data.data[0];
@@ -37,7 +37,7 @@ export default {
 
             return { text: messages.join(" | ") };
         } catch (error) {
-            return { text: "FeelsDankMan @${username} nicht gefunden." };
+            return { text: "FeelsDankMan user @${username} nicht gefunden." };
         }
     }
 };
