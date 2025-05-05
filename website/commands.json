@@ -30,6 +30,14 @@
     "cooldown": 3
   },
   {
+    "name": "cat",
+    "description": "Gibt einen Random Fact zu Katzen",
+    "aliases": [
+      "catfact"
+    ],
+    "cooldown": 3
+  },
+  {
     "name": "commands",
     "description": "Link zur TupidBot Website",
     "aliases": [
@@ -66,14 +74,6 @@
     "description": "Zeigt Bilder von echten Freunden",
     "aliases": [
       "freunde"
-    ],
-    "cooldown": 3
-  },
-  {
-    "name": "cat",
-    "description": "Gibt Gemeine Sprüche",
-    "aliases": [
-      "catfact"
     ],
     "cooldown": 3
   },
@@ -129,6 +129,19 @@
       "rs"
     ],
     "cooldown": 3
+  },
+  {
+    "name": "streaminfo",
+    "description": "Stream info about a Twitch channel",
+    "aliases": [
+      "si",
+      "title",
+      "game",
+      "uptime",
+      "thumbnail",
+      "thumb"
+    ],
+    "cooldown": 5
   },
   {
     "name": "timer",

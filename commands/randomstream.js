@@ -11,7 +11,6 @@ export default {
         const topGames = await GetTopGames(100);
 
         if (!topGames || topGames.length === 0) {
-            console.log('Fehler: Keine Top-Spiele gefunden');
             return {
                 text: "Es konnte kein Spiel gefunden werden. Versuche es später nochmal.",
                 reply: true,
@@ -22,7 +21,6 @@ export default {
         const data2 = await GetFirstStreams(100, getRandomGame['id']);
 
         if (!data2 || data2.length === 0) {
-            console.log('Fehler: Keine Streams für das ausgewählte Spiel gefunden');
             return {
                 text: "Es konnte kein Stream für dieses Spiel gefunden werden.",
                 reply: true,
