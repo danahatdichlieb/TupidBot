@@ -74,6 +74,13 @@ export default {
             const fireAt = Math.floor(Date.now() / 1000) + duration;
             const timerId = await db.addTimer(username, channelName, message, fireAt);
 
+            if (targetTime) {
+                const targetTimeString = targetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                return {
+                    text: `ApuApustaja Timer für ${targetTimeString} gesetzt. ${message}`,
+                };
+            }
+
             const minutesRemaining = Math.floor(duration / 60);
             const secondsRemaining = duration % 60;
 
