@@ -6,7 +6,7 @@ import {antiPing} from "../utils/utils.js";
 
 export default {
     name: "7tvuser",
-    aliases: ["7tvu", "stvu", "s"],
+    aliases: ["7tvu", "stvu"],
     description: "Zeigt 7tv Informationen zu einem Benutzer",
     cooldown: 3,
     permission: 0,
