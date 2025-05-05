@@ -11,7 +11,7 @@ class Database {
                 password: db.db.pass,
                 database: db.db.name,
                 host: db.db.host,
-                connectionLimit: 500
+                connectionLimit: 1000
             });
         }
     }
