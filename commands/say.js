@@ -5,7 +5,7 @@ export default {
     name: "say",
     aliases: [""],
     description: "Sendet eine Nachricht",
-    cooldown: 0,
+    cooldown: 3,
     permission: 6,
     async execute(chat, msg, args) {
         if (!args || args.length < 2) {
