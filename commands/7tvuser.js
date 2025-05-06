@@ -2,7 +2,7 @@ import { getUser, GlobalEmote } from '../token/stvREST.js';
 import { ParseUser, IDByLogin } from '../utils/twitch.js';
 import { GetEditorOfChannels } from '../token/stvGQL.js';
 import humanizeDuration from '../utils/humanizeDuration.js';
-import {antiPing} from "../utils/utils.js";
+import { antiPing } from "../utils/utils.js";
 
 export default {
     name: "7tvuser",
