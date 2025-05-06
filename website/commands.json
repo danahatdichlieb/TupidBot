@@ -4,8 +4,7 @@
     "description": "Zeigt 7tv Informationen zu einem Benutzer",
     "aliases": [
       "7tvu",
-      "stvu",
-      "s"
+      "stvu"
     ],
     "cooldown": 3
   },
@@ -131,17 +130,12 @@
     "cooldown": 3
   },
   {
-    "name": "streaminfo",
-    "description": "Stream info about a Twitch channel",
+    "name": "say",
+    "description": "Sendet eine Nachricht",
     "aliases": [
-      "si",
-      "title",
-      "game",
-      "uptime",
-      "thumbnail",
-      "thumb"
+      ""
     ],
-    "cooldown": 5
+    "cooldown": 3
   },
   {
     "name": "timer",
