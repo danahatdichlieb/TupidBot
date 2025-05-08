@@ -126,7 +126,7 @@
   },
   {
     "name": "timer",
-    "description": "Setzt einen Timer",
+    "description": "Sets a timer",
     "aliases": [
       "t"
     ],
@@ -134,7 +134,7 @@
   },
   {
     "name": "user",
-    "description": "Zeigt Informationen zum Benutzer",
+    "description": "Shows details about the user.",
     "aliases": [
       "u"
     ],
@@ -142,13 +142,13 @@
   },
   {
     "name": "vanity",
-    "description": "Vanity of a user",
+    "description": "Vanity of an user",
     "aliases": [],
     "cooldown": 3
   },
   {
     "name": "weather",
-    "description": "Zeigt das Wetter einer Stadt an",
+    "description": "Shows the weather for a city.",
     "aliases": [
       "w"
     ],

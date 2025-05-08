@@ -123,7 +123,44 @@ async function getClient() {
             return searchEmote;
         };
 
-        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote };
+        const getChannelEmotes = async (channelID) => {
+            const query = `{
+            users {
+                userByConnection(platform: TWITCH, platformId: "${channelID}") {
+                    style {
+                        activeEmoteSet {
+                            id
+                            name
+                            capacity
+                            emotes {
+                                items {
+                                    id
+                                    alias
+                                }
+                                totalCount
+                            }
+                        }
+                    }
+                }
+            }
+        }`;
+
+            const url = 'https://7tv.io/v4/gql';
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query }),
+            };
+
+            const response = await fetch(url, options);
+            const data = await response.json();
+
+            return data.data.users.userByConnection.style.activeEmoteSet;
+        }
+
+        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote, getChannelEmotes };
     }
 
     return client;
@@ -142,6 +179,11 @@ export async function GetChannelRoles(channelID) {
 export async function SearchSTVEmote(emote, exactMatch = false) {
     const { SearchSTVEmote } = await getClient();
     return await SearchSTVEmote(emote, exactMatch);
+}
+
+export async function getChannelEmotes(channelID) {
+    const { getChannelEmotes } = await getClient();
+    return await getChannelEmotes(channelID);
 }
 
 

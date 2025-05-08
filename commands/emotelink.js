@@ -1,40 +1,4 @@
-async function getChannelEmotes(channelId) {
-    const query = `{
-            users {
-                userByConnection(platform: TWITCH, platformId: "${channelId}") {
-                    style {
-                        activeEmoteSet {
-                            id
-                            name
-                            capacity
-                            emotes {
-                                items {
-                                    id
-                                    alias
-                                }
-                                totalCount
-                            }
-                        }
-                    }
-                }
-            }
-        }`;
-
-
-    const url = 'https://7tv.io/v4/gql';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ query }),
-    };
-
-    const response = await fetch(url, options);
-    const data = await response.json();
-
-    return data.data.users.userByConnection.style.activeEmoteSet;
-}
+import {getChannelEmotes} from "../token/stvGQL.js";
 
 export default {
     name: "emotelink",
