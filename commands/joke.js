@@ -1,7 +1,7 @@
 export default {
   name: "joke",
-  aliases: ["witz", "lachen"],
-  description: "Erzählt einen zufälligen Witz",
+  aliases: [],
+  description: "random joke",
   cooldown: 3,
   permission: 0,
   async execute(chat, msg, args) {
@@ -11,8 +11,6 @@ export default {
 
       if (data && data.joke) {
         return { text: `${data.joke}` };
-      } else {
-        return { text: "NoNo" };
       }
     } catch (error) {
       console.error("Fehler:", error);

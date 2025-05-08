@@ -16,14 +16,14 @@ const countryCodeToEmoji = {
 export default {
     name: "weather",
     aliases: ["w"],
-    description: "Zeigt das Wetter einer Stadt an",
+    description: "Shows the weather for a city.",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
         const city = args[0];
 
         if (!city) {
-            return { text: "+w <stadtname>" };
+            return { text: "+w <city>" };
         }
 
         const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
@@ -34,7 +34,7 @@ export default {
             const data = await response.json();
 
             if (data.cod !== 200) {
-                return { text: `Die Stadt "${city}" wurde nicht gefunden.` };
+                return { text: `FeelsDankMan City "${city}" not found.` };
             }
 
             const { name, main, weather, sys } = data;
@@ -48,16 +48,16 @@ export default {
 
             const messages = [
                 `${name} ${countryEmoji}`,
-                `${description}, ${temp}°C (gefühlt: ${feels_like}°C)`,
-                `🌅 Sonnenaufgang: ${sunrise}`,
-                `🌇 Sonnenuntergang: ${sunset}`
+                `${description}, ${temp}°C (feels like: ${feels_like}°C)`,
+                `🌅 Sunrise: ${sunrise}`,
+                `🌇 Sunset: ${sunset}`
             ];
 
             return { text: messages.join(" | ") };
 
         } catch (error) {
-            console.error("Fehler beim Abrufen der Wetterdaten:", error);
-            return { text: "Konnte Wetterdaten nicht abrufen." };
+            console.error(error);
+            return { text: "Unable to fetch weather data." };
         }
     }
 };

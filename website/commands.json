@@ -1,7 +1,7 @@
 [
   {
     "name": "7tvuser",
-    "description": "Zeigt 7tv Informationen zu einem Benutzer",
+    "description": "7tv information about a user",
     "aliases": [
       "7tvu",
       "stvu"
@@ -10,7 +10,7 @@
   },
   {
     "name": "add",
-    "description": "Added TupidBot in deinen Channel.",
+    "description": "Add TupidBot to your channel.",
     "aliases": [
       "join"
     ],
@@ -18,7 +18,7 @@
   },
   {
     "name": "mods",
-    "description": "Gibt eine Liste zu allen Mods eines Channels",
+    "description": "Shows a list of all moderators/vips in a channel.",
     "aliases": [
       "getmods",
       "modslist",
@@ -30,7 +30,7 @@
   },
   {
     "name": "cat",
-    "description": "Gibt einen Random Fact zu Katzen",
+    "description": " random fact about cats",
     "aliases": [
       "catfact"
     ],
@@ -38,15 +38,15 @@
   },
   {
     "name": "commands",
-    "description": "Link zur TupidBot Website",
+    "description": "links to TupidBot website",
     "aliases": [
-      "cmd"
+      "help"
     ],
     "cooldown": 3
   },
   {
     "name": "dana",
-    "description": "zufälliges Bild von Dana",
+    "description": "Random Picture of Dana",
     "aliases": [
       "dana"
     ],
@@ -54,7 +54,7 @@
   },
   {
     "name": "emotelink",
-    "description": "Link zu einem 7TV-Emote aus dem Channel",
+    "description": "Returns a link to a 7TV emote used in the channel.",
     "aliases": [
       "link"
     ],
@@ -70,7 +70,7 @@
   },
   {
     "name": "frenn",
-    "description": "Zeigt Bilder von echten Freunden",
+    "description": "photos of real friends",
     "aliases": [
       "freunde"
     ],
@@ -78,30 +78,19 @@
   },
   {
     "name": "hi",
-    "description": "TupidBot sagt hi",
-    "aliases": [
-      "hi"
-    ],
+    "description": "TupidBot says hi",
+    "aliases": [],
     "cooldown": 3
   },
   {
     "name": "joke",
-    "description": "Erzählt einen zufälligen Witz",
-    "aliases": [
-      "witz",
-      "lachen"
-    ],
-    "cooldown": 3
-  },
-  {
-    "name": "julius",
-    "description": "julius stinkt",
+    "description": "random joke",
     "aliases": [],
     "cooldown": 3
   },
   {
     "name": "liste",
-    "description": "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
+    "description": "Add or remove a user from the mean/nice list, or display the list.",
     "aliases": [
       "list"
     ],
@@ -109,7 +98,7 @@
   },
   {
     "name": "part",
-    "description": "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
+    "description": "Bot leaves the user's channel",
     "aliases": [],
     "cooldown": 10
   },
@@ -123,7 +112,7 @@
   },
   {
     "name": "randomstream",
-    "description": "Gibt einen random Stream",
+    "description": "Shows a random stream",
     "aliases": [
       "rs"
     ],
@@ -131,10 +120,8 @@
   },
   {
     "name": "say",
-    "description": "Sendet eine Nachricht",
-    "aliases": [
-      ""
-    ],
+    "description": "sends a message in a channel",
+    "aliases": [],
     "cooldown": 3
   },
   {
@@ -151,6 +138,12 @@
     "aliases": [
       "u"
     ],
+    "cooldown": 3
+  },
+  {
+    "name": "vanity",
+    "description": "Vanity of a user",
+    "aliases": [],
     "cooldown": 3
   },
   {

@@ -7,7 +7,7 @@ const danaData = JSON.parse(
 
 export default {
   name: "dana",
-  description: "zufälliges Bild von Dana",
+  description: "Random Picture of Dana",
   aliases: ["dana"],
   cooldown: 3,
   permission: 0,
@@ -16,6 +16,6 @@ export default {
       danaData.data[Math.floor(Math.random() * danaData.data.length)];
     const response = msg.args?.length ? `${msg.args.join(" ")}, ${dana}` : dana;
 
-    return { text: `SoCute ${response} patpat` };
+    return { text: `peepoHappy ${response}` };
   },
 };

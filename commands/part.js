@@ -2,7 +2,7 @@ import Database from '../db/Database.js';
 
 export default {
     name: "part",
-    description: "Lässt den Bot den Channel des Nutzers verlassen und entfernt ihn aus der Datenbank.",
+    description: "Bot leaves the user's channel",
     cooldown: 10,
     permission: 0,
     async execute(chat, msg, args) {
@@ -16,10 +16,10 @@ export default {
             await db.query('DELETE FROM channels WHERE name = ?', [channelName]);
 
             return {
-                text: `peepoSad TupidBot hat Channel @${username} verlassen.`
+                text: `peepoSad TupidBot left channel @${username}.`
             };
         } catch (error) {
-            console.error("[part.js Fehler]", error);
+            console.error(error);
             return {
             };
         }

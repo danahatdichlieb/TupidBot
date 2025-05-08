@@ -3,7 +3,7 @@ import Database from "../db/Database.js";
 export default {
     name: "add",
     aliases: ["join"],
-    description: "Added TupidBot in deinen Channel.",
+    description: "Add TupidBot to your channel.",
     cooldown: 10,
     permission: 0,
     async execute(chat, msg, args) {
@@ -23,22 +23,19 @@ export default {
 
                 await chat.join(channelName);
 
-                await chat.say(channelName, "peepoHappy TupidBot ist erfolgreich deinem Channel gejoined. Der Standardprefix ist „+“. Alle Commands des Bots findet man hier: https://tupidbot.vercel.app/");
+                await chat.say(channelName, "peepoHappy TupidBot has successfully joined your channel. The default prefix is '+'. You can find all bot commands here: https://tupidbot.vercel.app/");
 
                 return {
-                    text: `peepoHappy TupidBot ist dem Channel @${username} gejoined.`
+                    text: `peepoHappy TupidBot has joined the channel @${username}.`
                 };
             } else {
                 return {
-                    text: `FeelsDankMan TupidBot ist bereits in deinem Channel.`
+                    text: `FeelsDankMan TupidBot is already in your channel.`
                 };
             }
 
         } catch (error) {
             console.error("[add.js Fehler]", error);
-            return {
-                text: `Es ist ein Fehler aufgetreten.`
-            };
         }
     }
 };

@@ -3,8 +3,8 @@ import { sendMessage } from "../utils/twitch.js";
 
 export default {
     name: "say",
-    aliases: [""],
-    description: "Sendet eine Nachricht",
+    aliases: [],
+    description: "sends a message in a channel",
     cooldown: 3,
     permission: 6,
     async execute(chat, msg, args) {
@@ -17,7 +17,7 @@ export default {
 
         const userId = await IDByLogin(channel);
         if (!userId) {
-            return { text: `FeelsDankMan Channel @${channel} nicht gefunden.` };
+            return { text: `FeelsDankMan channel @${channel} not found.` };
         }
 
         const sent = await sendMessage(userId, message);
@@ -26,6 +26,6 @@ export default {
             return { text: `FeelsDankMan` };
         }
 
-        return { text: `SeemsGood` };
+        return { text: `SeemsGood message send` };
     }
 };

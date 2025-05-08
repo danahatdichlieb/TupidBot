@@ -129,19 +129,31 @@ body {
 
 #commands-list div::before {
   content: "+";
-  color: #c1c1c1;
+  color: rgba(193, 193, 193, 0.71);
   font-weight: 700;
   margin-right: 2px;
   font-size: 1.2rem;
 }
 
 #commands-list strong {
-  color: #ffffff;
+  color: #d8d8d8;
+  font-family: "Arial Black", serif;
   font-size: 1.1em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#commands-list p {
+  font-size: 1.1em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #commands-list em {
   color: #2ea043;
+  font-size: 1.1em;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 #commands-list div {
@@ -165,15 +177,7 @@ body {
 
 #commands-list rm {
   color: #4a8ce3;
-  font-weight: bold;
   font-size: 1.05rem;
-  margin-top: 10px;
-}
-
-#commands-list rm {
-  color: #4a8ce3;
-  font-weight: normal;
-  font-size: 1.1em;
 }
 
 

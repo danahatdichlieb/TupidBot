@@ -7,7 +7,7 @@ import { antiPing } from "../utils/utils.js";
 export default {
     name: "7tvuser",
     aliases: ["7tvu", "stvu"],
-    description: "Zeigt 7tv Informationen zu einem Benutzer",
+    description: "7tv information about a user",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -28,7 +28,7 @@ export default {
 
         const emoteSet = emote_set
             ? `${emote_set.emote_count}/${emote_set.capacity}`
-            : 'Emote Set nicht verfügbar';
+            : 'Emote Set not available';
 
         const { editor_of } = await GetEditorOfChannels(id);
 

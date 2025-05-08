@@ -4,7 +4,7 @@ import { ParseUser } from '../utils/twitch.js';
 export default {
     name: "mods",
     aliases: ["getmods", "modslist", "vips", "allmods", "allvips"],
-    description: "Gibt eine Liste zu allen Mods eines Channels",
+    description: "Shows a list of all moderators/vips in a channel.",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -38,13 +38,13 @@ export default {
                 .json();
 
             return {
-                text: `${modsMapped.length} mods, ${vipsMapped.length} vips im channel @${targetUser} - https://paste.ivr.fi/${key} `,
+                text: `${modsMapped.length} mods, ${vipsMapped.length} VIPs in channel @${targetUser} - https://paste.ivr.fi/${key} `,
                 reply: true,
             };
         } catch (e) {
             console.log(e);
             return {
-                text: 'FeelsDankMan Channel nicht gefunden',
+                text: 'FeelsDankMan Channel not found',
                 reply: true,
             };
         }

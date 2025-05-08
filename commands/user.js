@@ -5,7 +5,7 @@ import { timeAgo } from "../utils/utils.js";
 export default {
     name: "user",
     aliases: ["u"],
-    description: "Zeigt Informationen zum Benutzer",
+    description: "Shows details about the user.",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -23,7 +23,10 @@ export default {
             });
 
             if (response.data.data.length === 0) {
-                return { text: `FeelsDankMan user @${username} nicht gefunden.` };
+                return {
+                    text: `FeelsDankMan user @${username} not found.`,
+                    reply: true,
+                }
             }
 
             const user = response.data.data[0];
@@ -31,13 +34,13 @@ export default {
             const shortenedDescription = user.description.length > 30 ? user.description.slice(0, 30) + '...' : user.description;
 
             const messages = [
-                `imGlitch @${user.display_name} | ID: ${user.id} | Bio: ${shortenedDescription || "Keine Beschreibung"}`,
-                `Erstellt vor: ${timeAgo(user.created_at)}`
+                `imGlitch @${user.display_name} | ID: ${user.id} | Bio: ${shortenedDescription || "no description"}`,
+                `Created: ${timeAgo(user.created_at)} ago`
             ];
 
             return { text: messages.join(" | ") };
         } catch (error) {
-            return { text: "FeelsDankMan user @${username} nicht gefunden." };
+            return { text: `FeelsDankMan user @${username} not found.` };
         }
     }
 };

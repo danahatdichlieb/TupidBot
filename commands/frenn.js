@@ -4,10 +4,10 @@ const answers = ["https://imgur.com/NXpiK0f", "https://imgur.com/qsKbh37",
 export default {
     name: 'frenn',
     aliases: ['freunde'],
-    description: 'Zeigt Bilder von echten Freunden',
+    description: 'photos of real friends',
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
-        return { text: `glorpNice ${answers[Math.floor(Math.random() * answers.length)]} frenn` };
+        return { text: `peepoHappy ${answers[Math.floor(Math.random() * answers.length)]}` };
     },
 };

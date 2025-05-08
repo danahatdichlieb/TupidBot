@@ -1,9 +1,10 @@
 import Database from '../db/Database.js';
+import {antiPing} from "../utils/utils.js";
 
 export default {
     name: "liste",
     aliases: ["list"],
-    description: "Fügt Benutzer zu gemein/nett hinzu oder entfernt sie oder zeigt die Liste.",
+    description: "Add or remove a user from the mean/nice list, or display the list.",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -20,13 +21,12 @@ export default {
                 const db = new Database();
                 const result = await db.query(`SELECT username FROM ${list}`);
                 if (result.length === 0) {
-                    return { text: `Die Liste '${list}' ist leer.` };
+                    return { text: `The list ${list} is currently empty.` };
                 }
                 const usernames = result.map(u => u.username).join(', ');
                 return { text: `${list === 'gemein' ? "Gemeine" : "Nette"} Liste: ${usernames}` };
             } catch (error) {
-                console.error("Fehler beim Abrufen der Liste:", error);
-                return { text: "Fehler beim Abrufen der Liste." };
+                console.error(error);
             }
         }
 
@@ -40,22 +40,21 @@ export default {
 
             if (action === "add") {
                 if (existingUser) {
-                    return { text: `${targetUser} ist bereits in der Liste '${list}'.` };
+                    return { text: `${antiPing(targetUser)} is already on the ${list} list` };
                 }
                 await db.query(`INSERT INTO ${list} (username) VALUES (?)`, [targetUser]);
-                return { text: `${targetUser} wurde zur Liste '${list}' hinzugefügt. ApuApustaja` };
+                return { text: `ApuApustaja ${antiPing(targetUser)} is now in the ${list} list` };
             }
 
             if (action === "remove") {
                 if (!existingUser) {
-                    return { text: `${targetUser} ist nicht in der Liste '${list}'.` };
+                    return { text: `${antiPing(targetUser)} is not in the ${list}.` };
                 }
                 await db.query(`DELETE FROM ${list} WHERE username = ?`, [targetUser]);
-                return { text: `${targetUser} wurde aus der Liste '${list}' entfernt.` };
+                return { text: `${antiPing(targetUser)} was removed from the ${list} list.` };
             }
         } catch (error) {
-            console.error("Datenbankfehler:", error);
-            return { text: "GULP" };
+            console.error(error);
         }
     }
 };

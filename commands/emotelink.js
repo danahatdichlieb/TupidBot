@@ -39,7 +39,7 @@ async function getChannelEmotes(channelId) {
 export default {
     name: "emotelink",
     aliases: ["link"],
-    description: "Link zu einem 7TV-Emote aus dem Channel",
+    description: "Returns a link to a 7TV emote used in the channel.",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -59,7 +59,7 @@ export default {
 
             if (!emote) {
                 return {
-                    text: `Emote ${emoteName} nicht gefunden.`,
+                    text: `Emote ${emoteName} not found.`,
                     reply: true,
                 };
             }

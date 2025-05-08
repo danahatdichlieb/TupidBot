@@ -3,7 +3,7 @@ import Database from '../db/Database.js';
 export default {
     name: "timer",
     aliases: ["t"],
-    description: "Setzt einen Timer",
+    description: "Sets a timer",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
@@ -11,7 +11,7 @@ export default {
         const channelName = msg.channelName;
 
         if (!args[0]) {
-            return { text: `FeelsDankMan Bsp.: +timer 10s | +timer 1h | +timer um 18:30` };
+            return { text: `FeelsDankMan usage: +timer 10s | +timer 1h | +timer at 18:30` };
         }
 
         const now = new Date();
@@ -19,10 +19,10 @@ export default {
         let messageStartIndex = 1;
         let targetTime;
 
-        if (args[0].toLowerCase() === "um" && args[1]) {
+        if (args[0].toLowerCase() === "at" && args[1]) {
             const timeMatch = args[1].match(/^(\d{1,2}):(\d{2})$/);
             if (!timeMatch) {
-                return { text: `FeelsDankMan Ungültige Uhrzeit` };
+                return { text: `FeelsDankMan Time is invalid` };
             }
 
             let [_, hour, minute] = timeMatch.map(Number);
@@ -45,7 +45,7 @@ export default {
                 unit = match[2].toLowerCase();
             } else {
                 if (!args[1]) {
-                    return { text: `FeelsDankMan Bsp.: +timer 10s | +timer 1h | +timer um 18:30` };
+                    return { text: `FeelsDankMan usage: +timer 10s | +timer 1h | +timer um 18:30` };
                 }
                 timeValue = parseInt(args[0]);
                 unit = args[1].toLowerCase();
@@ -53,7 +53,7 @@ export default {
             }
 
             if (isNaN(timeValue) || timeValue <= 0) {
-                return { text: `FeelsDankMan Ungültige Zeitangabe.` };
+                return { text: `FeelsDankMan Time is invalid` };
             }
 
             if (["h", "hour", "hours", "std", "stunde", "stunden"].includes(unit)) {
@@ -63,7 +63,7 @@ export default {
             } else if (["sek", "sekunden", "sekunde", "s"].includes(unit)) {
                 duration = timeValue;
             } else {
-                return { text: `FeelsDankMan Benutze s, m oder h.` };
+                return { text: `FeelsDankMan use s, m or h.` };
             }
         }
 
@@ -77,7 +77,7 @@ export default {
             if (targetTime) {
                 const targetTimeString = targetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 return {
-                    text: `ApuApustaja Timer für ${targetTimeString} gesetzt. ${message}`,
+                    text: `ApuApustaja Timer has been set for ${targetTimeString}. ${message}`,
                 };
             }
 
@@ -92,16 +92,16 @@ export default {
             }
 
             setTimeout(async () => {
-                await chat.say(channelName, `DinkDonk @${username}, Timer abgelaufen ${message}`);
+                await chat.say(channelName, `DinkDonk @${username}, the timer is up ${message}`);
                 await db.deleteTimer(timerId);
             }, duration * 1000);
 
             return {
-                text: `ApuApustaja Timer für ${timeText} gesetzt. ${message}`,
+                text: `ApuApustaja Timer has been set for ${timeText}. ${message}`,
             };
         } catch (error) {
-            console.error("[timer.js Fehler]", error);
-            return { text: `FeelsDankMan Fehler beim Setzen des Timers.` };
+            console.error(error);
+            return { text: `FeelsDankMan Timer setting failed.` };
         }
     },
 };

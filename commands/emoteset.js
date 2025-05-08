@@ -16,7 +16,7 @@ export default {
         const setInfo = await getUser(uid);
         if (!setInfo) {
             return {
-                text: `User ${targetUser} nicht gefunden`,
+                text: `User @${targetUser} not found`,
                 reply: true,
             };
         }
@@ -27,7 +27,7 @@ export default {
         const setName = emote_set.emote_set.name;
         const emoteSet = emote_set
             ? `${emote_set.emote_set.emote_count}/${emote_set.emote_set.capacity}`
-            : `Emote Set nicht gefunden`;
+            : `Emote Set not found`;
 
         return {
             text: `${Emote} ${antiPing(targetUser)} - Emote Set: ${emoteSet} | Name: ${setName} | Link: ${setlink} | ${setId}  `,

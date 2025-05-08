@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 export default {
     name: "cat",
     aliases: ["catfact"],
-    description: "Gibt einen Random Fact zu Katzen",
+    description: " random fact about cats",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
