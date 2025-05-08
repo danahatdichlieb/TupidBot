@@ -89,40 +89,6 @@ async function getClient() {
             return res;
         };
 
-        const SearchSTVEmote = async (emote, exactMatch = false) => {
-            const query = {
-                variables: {
-                    query: emote,
-                    limit: 100,
-                    page: 1,
-                    filter: {
-                        case_sensitive: true,
-                        category: `TOP`,
-                        exact_match: exactMatch,
-                        ignore_tags: false,
-                    },
-                },
-                operationName: 'SearchEmotes',
-                query: `query SearchEmotes($query: String!, $page: Int, $limit: Int, $filter: EmoteSearchFilter) {
-    emotes(query: $query, page: $page, limit: $limit, filter: $filter) {
-        count
-        items {
-            id
-            name
-            listed
-            owner {
-                id
-                username
-                display_name
-            }
-        }
-    }
-}`,
-            };
-            const searchEmote = await makeRequest(query);
-            return searchEmote;
-        };
-
         const getChannelEmotes = async (channelID) => {
             const query = `{
             users {
@@ -160,7 +126,7 @@ async function getClient() {
             return data.data.users.userByConnection.style.activeEmoteSet;
         }
 
-        client = { GetEditorOfChannels, GetChannelRoles, SearchSTVEmote, getChannelEmotes };
+        client = { GetEditorOfChannels, GetChannelRoles, getChannelEmotes };
     }
 
     return client;
@@ -174,11 +140,6 @@ export async function GetEditorOfChannels(stvID) {
 export async function GetChannelRoles(channelID) {
     const { GetChannelRoles } = await getClient();
     return await GetChannelRoles(channelID);
-}
-
-export async function SearchSTVEmote(emote, exactMatch = false) {
-    const { SearchSTVEmote } = await getClient();
-    return await SearchSTVEmote(emote, exactMatch);
 }
 
 export async function getChannelEmotes(channelID) {

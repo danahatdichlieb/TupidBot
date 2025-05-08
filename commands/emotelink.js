@@ -1,4 +1,5 @@
 import {getChannelEmotes} from "../token/stvGQL.js";
+import emoteset from "./emoteset.js";
 
 export default {
     name: "emotelink",
