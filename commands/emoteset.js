@@ -5,7 +5,7 @@ import {antiPing} from "../utils/utils.js";
 export default {
     name: "emoteset",
     aliases: ["set"],
-    description: "Gibt Informationen zu deinem Aktiven 7tv-Emote-Set",
+    description: "Information about the current active 7tv Emote-Set",
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
