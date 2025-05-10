@@ -3,7 +3,7 @@ import { ParseUser } from '../utils/twitch.js';
 
 export default {
     name: "mods",
-    aliases: ["getmods", "modslist", "vips", "allmods", "allvips"],
+    aliases: ["vips"],
     description: "Shows a list of all moderators/vips in a channel.",
     cooldown: 3,
     permission: 0,
