@@ -49,7 +49,7 @@ class Bot {
             const delay = timer.fireAt - Math.floor(Date.now() / 1000);
             if (delay > 0) {
                 setTimeout(async () => {
-                    await this.chat.say(timer.channel, `DinkDonk | @${timer.username} | Timer expired ⏰ | Message: ${timer.message}`);
+                    await this.chat.say(timer.channel, `DinkDonk | @${timer.username} | Timer expired ⏰ ${timer.message}`);
                     await this.db.deleteTimer(timer.id);
                 }, delay * 1000);
             }
