@@ -1,5 +1,6 @@
 import Database from '../db/Database.js';
-import {antiPing} from "../utils/utils.js";
+import { antiPing } from "../utils/utils.js";
+import got from 'got';
 
 export default {
     name: "liste",
@@ -8,53 +9,52 @@ export default {
     cooldown: 3,
     permission: 0,
     async execute(chat, msg, args) {
-        const list = args[0];
-        const action = args[1];
-        const targetUser = args[2]?.toLowerCase();
+        const [list, action, rawUser] = args;
+        const targetUser = rawUser?.toLowerCase();
 
-        if (!list || (list !== "gemein" && list !== "nett")) {
+        if (!["gemein", "nett"].includes(list)) {
             return { text: "+liste <gemein/nett> <add/remove> <username>" };
         }
 
+        const db = new Database();
+
         if (!action) {
             try {
-                const db = new Database();
                 const result = await db.query(`SELECT username FROM ${list}`);
-                if (result.length === 0) {
-                    return { text: `The list ${list} is currently empty.` };
-                }
-                const usernames = result.map(u => u.username).join(', ');
-                return { text: `${list === 'gemein' ? "Gemeine" : "Nette"} Liste: ${usernames}` };
-            } catch (error) {
-                console.error(error);
+                if (!result.length) return { text: `The ${list} list is currently empty.` };
+
+                const usernames = result.map(u => u.username).join('\n');
+                const { key } = await got.post("https://paste.ivr.fi/documents", {
+                    responseType: "json",
+                    body: usernames,
+                }).json();
+
+                return { text: `${list === "gemein" ? "Gemeine" : "Nette"} list: https://paste.ivr.fi/${key}` };
+            } catch (err) {
+                console.error(err);
+                return { text: "Error fetching the list." };
             }
         }
 
-        if (!targetUser || (action !== "add" && action !== "remove")) {
+        if (!["add", "remove"].includes(action) || !targetUser) {
             return { text: "+liste <gemein/nett> <add/remove> <username>" };
         }
 
         try {
-            const db = new Database();
-            const existingUser = await db.queryOne(`SELECT * FROM ${list} WHERE username = ?`, [targetUser]);
+            const userExists = await db.queryOne(`SELECT 1 FROM ${list} WHERE username = ?`, [targetUser]);
 
             if (action === "add") {
-                if (existingUser) {
-                    return { text: `${antiPing(targetUser)} is already on the ${list} list` };
-                }
+                if (userExists) return { text: `${antiPing(targetUser)} is already on the ${list} list.` };
                 await db.query(`INSERT INTO ${list} (username) VALUES (?)`, [targetUser]);
-                return { text: `ApuApustaja ${antiPing(targetUser)} is now in the ${list} list` };
+                return { text: `ApuApustaja ${antiPing(targetUser)} was added to the ${list} list.` };
             }
 
-            if (action === "remove") {
-                if (!existingUser) {
-                    return { text: `${antiPing(targetUser)} is not in the ${list}.` };
-                }
-                await db.query(`DELETE FROM ${list} WHERE username = ?`, [targetUser]);
-                return { text: `${antiPing(targetUser)} was removed from the ${list} list.` };
-            }
-        } catch (error) {
-            console.error(error);
+            if (!userExists) return { text: `${antiPing(targetUser)} is not on the ${list} list.` };
+            await db.query(`DELETE FROM ${list} WHERE username = ?`, [targetUser]);
+            return { text: `${antiPing(targetUser)} was removed from the ${list} list.` };
+        } catch (err) {
+            console.error(err);
+            return { text: "An error occurred." };
         }
     }
 };

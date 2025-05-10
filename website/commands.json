@@ -62,7 +62,7 @@
   },
   {
     "name": "emoteset",
-    "description": "Gibt Informationen zu deinem Aktiven 7tv-Emote-Set",
+    "description": "Information about the current active 7tv Emote-Set",
     "aliases": [
       "set"
     ],

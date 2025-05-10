@@ -23,21 +23,31 @@ export function timeSince(timestamp) {
 export function timeAgo(date) {
     const now = new Date();
     const diffInSeconds = Math.floor((now - new Date(date)) / 1000);
-    const diffInMinutes = Math.floor(diffInSeconds / 60);
-    const diffInHours = Math.floor(diffInMinutes / 60);
-    const diffInDays = Math.floor(diffInHours / 24);
-    const diffInMonths = Math.floor(diffInDays / 30);
-    const diffInYears = Math.floor(diffInMonths / 12);
 
-    if (diffInYears > 1) return `${diffInYears} Jahre ${diffInMonths % 12} Monate und ${diffInDays % 30} Tagen`;
-    if (diffInYears === 1) return `1 Jahr ${diffInMonths % 12} Monate und ${diffInDays % 30} Tagen`;
-    if (diffInMonths > 1) return `${diffInMonths} Monate und ${diffInDays % 30} Tagen`;
-    if (diffInMonths === 1) return `1 Monat und ${diffInDays % 30} Tage`;
-    if (diffInDays > 0) return `${diffInDays} Tagen und ${diffInHours % 24} Stunden`;
-    if (diffInHours > 0) return `${diffInHours} Stunden und ${diffInMinutes % 60} Minuten`;
-    if (diffInMinutes > 0) return `${diffInMinutes} Minuten und ${diffInSeconds % 60} Sekunden`;
-    return `${diffInSeconds} Sekunden`;
+    const units = [
+        { label: "y", seconds: 31536000 },
+        { label: "mo", seconds: 2592000 },
+        { label: "d", seconds: 86400 },
+        { label: "h", seconds: 3600 },
+        { label: "m", seconds: 60 },
+        { label: "s", seconds: 1 }
+    ];
+
+    let remaining = diffInSeconds;
+    const result = [];
+
+    for (const unit of units) {
+        const value = Math.floor(remaining / unit.seconds);
+        if (value > 0) {
+            result.push(`${value}${unit.label}`);
+            remaining %= unit.seconds;
+        }
+        if (result.length === 2) break;
+    }
+
+    return result.length ? `${result.join(" ")} ago` : "just now";
 }
+
 
 export async function presence(channelId) {
     const data = {

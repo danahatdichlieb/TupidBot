@@ -35,7 +35,7 @@ export default {
 
             const messages = [
                 `imGlitch @${user.display_name} | ID: ${user.id} | Bio: ${shortenedDescription || "no description"}`,
-                `Created: ${timeAgo(user.created_at)} ago`
+                `Created: ${timeAgo(user.created_at)}`
             ];
 
             return { text: messages.join(" | ") };
