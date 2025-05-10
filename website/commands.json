@@ -20,11 +20,7 @@
     "name": "mods",
     "description": "Shows a list of all moderators/vips in a channel.",
     "aliases": [
-      "getmods",
-      "modslist",
-      "vips",
-      "allmods",
-      "allvips"
+      "vips"
     ],
     "cooldown": 3
   },
